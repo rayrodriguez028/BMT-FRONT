@@ -138,7 +138,8 @@
   
 .dropdownMenuExit {
     display: none;
-    animation: closeMenu 0.3s ease-in-out forwards;
+    animation: closeMenu 0.5s ease-in-out forwards;
+    visibility: hidden;
 }
 
 .blurredBackgroundEnter {
@@ -181,6 +182,7 @@
     100% {
       opacity: 0;
       transform: translateY(-20px); 
+      visibility: hidden;
     }
 }
 
