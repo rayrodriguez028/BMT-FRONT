@@ -98,14 +98,16 @@
     background-color: red;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 630px) {
     
     .sectionFooter2 {
+      position: absolute;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
       width: 100%;
       text-align: center;
+      bottom: 0;
     }
       
     
@@ -114,17 +116,17 @@
       left: 18%;
       transform: translateX(-50%);
       flex-direction: row;
-      top: 30%;
+      bottom: auto;
     }
 
     .sectionFooter3{
       position: absolute;
-      top: 30%;
       right: 1%;
       align-items: center;
       justify-content: center;
       background-color: white;
       width: 50%;
+      bottom: auto;
   }
       
 }
