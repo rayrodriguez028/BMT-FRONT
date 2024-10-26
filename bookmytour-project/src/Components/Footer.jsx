@@ -11,13 +11,14 @@ const Footer = () => {
                 <div>
                   <h1 className={StylesFooter.mainTitle}><span className={StylesFooter.blueText}>BOOK</span> MY TOUR</h1>
                   <h2 className={StylesFooter.slogan}>Keep  calm  and  travel on</h2>
+                  <h2 className={StylesFooter.sloganCopyright}>2024 @copyright</h2>  
                 </div>
               </Link>
             </section>
             <section className={StylesFooter.sectionFooter2}>
               <p>Sobre nosotros</p>
               <p>Politica de privacidad</p>
-              <p>Contáctacnos</p>
+              <p>Contáctanos</p>
             </section>
             <section className={StylesFooter.sectionFooter3}>
               <h4>Siguenos</h4>

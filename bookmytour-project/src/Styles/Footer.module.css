@@ -6,49 +6,60 @@
     justify-content: center;
 }
 
-.sectionFooter1{
+.sectionFooter1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    width: 33%;
-    background-color: red;
+    background-color: white;
 }
 
-.contenedorLogo{
+.contenedorLogo {
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-
-.logo {
+    flex-direction: row;
+    gap: 10px; /* Espacio entre el logo y el mensaje */
+  }
+  
+  .logo {
     width: 49px;
     height: 55px;
-}
-
-.mainTitle {
+  }
+  
+  .mensaje {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .mainTitle {
     font-size: 1rem;
     font-weight: bold;
     line-height: 30px;
     color: #464646;
     margin: 0px;
-    position: absolute;
-    top: 15px;
-}
-
-.blueText {
+  }
+  
+  .blueText {
     color: #009CDE;
-}
-
-.slogan {
+  }
+  
+  .slogan {
     color: #464646;
     font-size: 0.625rem;
     font-weight: bold;
     line-height: 30px;
     margin: 0px;
+  }
+
+.sloganCopyright {
+    color: #464646;
+    font-size: 0.625rem;
+    font-weight: bold;
+    line-height: 30px;
     position: absolute;
-    top: 33px;
-}
+    left: 15%;
+  }
+  
 
 .sectionFooter2{
     display: flex;
@@ -64,7 +75,7 @@
     justify-content: center;
     flex-direction: column;
     width: 33%;
-    background-color: pink;
+    background-color: white;
 }
 
 .ContendorRedes{
@@ -76,7 +87,7 @@
 
 .buttonRedSocial{
     text-decoration: none;
-    background-color: blue;
+    background-color: gray;
     font-size: 25px;
     color: white;
     padding: 7.5px 15px;
@@ -85,4 +96,35 @@
 
 .buttonRedSocial:hover{
     background-color: red;
+}
+
+@media (max-width: 450px) {
+    
+    .sectionFooter2 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      width: 100%;
+      text-align: center;
+    }
+      
+    
+    .contenedorLogo {
+      position: absolute;
+      left: 18%;
+      transform: translateX(-50%);
+      flex-direction: row;
+      top: 30%;
+    }
+
+    .sectionFooter3{
+      position: absolute;
+      top: 30%;
+      right: 1%;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      width: 50%;
+  }
+      
 }
