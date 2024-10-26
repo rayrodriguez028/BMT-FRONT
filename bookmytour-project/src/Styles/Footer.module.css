@@ -1,0 +1,88 @@
+.footerBookMyTour{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionFooter1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 33%;
+    background-color: red;
+}
+
+.contenedorLogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 49px;
+    height: 55px;
+}
+
+.mainTitle {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 30px;
+    color: #464646;
+    margin: 0px;
+    position: absolute;
+    top: 15px;
+}
+
+.blueText {
+    color: #009CDE;
+}
+
+.slogan {
+    color: #464646;
+    font-size: 0.625rem;
+    font-weight: bold;
+    line-height: 30px;
+    margin: 0px;
+    position: absolute;
+    top: 33px;
+}
+
+.sectionFooter2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 33%;
+}
+
+.sectionFooter3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 33%;
+    background-color: pink;
+}
+
+.ContendorRedes{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttonRedSocial{
+    text-decoration: none;
+    background-color: blue;
+    font-size: 25px;
+    color: white;
+    padding: 7.5px 15px;
+    border-radius: 50%;
+}
+
+.buttonRedSocial:hover{
+    background-color: red;
+}
