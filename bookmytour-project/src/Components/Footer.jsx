@@ -21,12 +21,24 @@ const Footer = () => {
               <p>Contáctanos</p>
             </section>
             <section className={StylesFooter.sectionFooter3}>
-              <h4>Siguenos</h4>
-              <div className={StylesFooter.ContendorRedes}>
-                <Link className={StylesFooter.buttonRedSocial}>X</Link>
-                <Link className={StylesFooter.buttonRedSocial}>X</Link>
-                <Link className={StylesFooter.buttonRedSocial}>X</Link>
-                <Link className={StylesFooter.buttonRedSocial}>0</Link>
+              <div className={StylesFooter.contenedorRedes}>
+                <h4>Síguenos</h4>
+                <nav>
+                  <ul>
+                    <li className={StylesFooter.buttonRedSocial}>
+                      <img src="public/images/espacioImagenRedesSociales.png" alt="" />
+                    </li>
+                    <li className={StylesFooter.buttonRedSocial}>
+                      <img src="public/images/espacioImagenRedesSociales.png" alt="" />
+                    </li>
+                    <li className={StylesFooter.buttonRedSocial}>
+                      <img src="public/images/espacioImagenRedesSociales.png" alt="" />
+                    </li>
+                    <li className={StylesFooter.buttonRedSocial}>
+                      <img src="public/images/espacioImagenRedesSociales.png" alt="" />
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </section>
         </footer>

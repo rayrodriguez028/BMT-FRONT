@@ -1,16 +1,17 @@
-.footerBookMyTour{
+.footerBookMyTour {
     width: 100%;
-    padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    background-color: #F9F9FB;
+    position: relative;
+    padding: 10px 0px;
 }
 
 .sectionFooter1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
 }
 
 .contenedorLogo {
@@ -18,6 +19,7 @@
     align-items: center;
     flex-direction: row;
     gap: 10px; /* Espacio entre el logo y el mensaje */
+    text-decoration: none;
   }
   
   .logo {
@@ -37,6 +39,7 @@
     line-height: 30px;
     color: #464646;
     margin: 0px;
+    text-decoration: none;
   }
   
   .blueText {
@@ -49,15 +52,16 @@
     font-weight: bold;
     line-height: 30px;
     margin: 0px;
+    text-decoration: none;
   }
 
 .sloganCopyright {
     color: #464646;
-    font-size: 0.625rem;
+    font-size: 0.875rem;
     font-weight: bold;
     line-height: 30px;
     position: absolute;
-    left: 15%;
+    margin: 0px;
   }
   
 
@@ -66,7 +70,13 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 33%;
+}
+
+.sectionFooter2 > p {
+  margin: 5px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
 }
 
 .sectionFooter3{
@@ -74,59 +84,53 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 33%;
-    background-color: white;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
-.ContendorRedes{
+.contenedorRedes{
     width: 80%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+.contenedorRedes > nav {
+  width: 100%;
+}
+
+.contenedorRedes > nav > ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  margin: 0px
+}
+
+.contenedorRedes > nav > ul > li {
+  margin: 0px 5px
 }
 
 .buttonRedSocial{
-    text-decoration: none;
-    background-color: gray;
-    font-size: 25px;
-    color: white;
-    padding: 7.5px 15px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
 }
 
-.buttonRedSocial:hover{
-    background-color: red;
+.buttonRedSocial > img{
+  width: 100%;
+  height: 100%;
 }
 
-@media (max-width: 630px) {
-    
-    .sectionFooter2 {
-      position: absolute;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      width: 100%;
-      text-align: center;
-      bottom: 0;
-    }
-      
-    
-    .contenedorLogo {
-      position: absolute;
-      left: 18%;
-      transform: translateX(-50%);
-      flex-direction: row;
-      bottom: auto;
-    }
-
-    .sectionFooter3{
-      position: absolute;
-      right: 1%;
-      align-items: center;
-      justify-content: center;
-      background-color: white;
-      width: 50%;
-      bottom: auto;
+@media (max-width: 870px) {  
+  .sectionFooter2 {
+    flex-direction: row;
+    position: absolute;
+    top: 10px;
   }
-      
+
+  .footerBookMyTour {
+    padding: 35px 0px 20px 0px;
+  }
 }

@@ -15,7 +15,7 @@ const Home = () => {
   }
 
   return (
-    <div style={{height: '100vh'}}>
+    <div>
       <img id={Styles.mainImage} src='public/images/espacioParaImagenPrincipal.png' alt='Main-Image'/>
       <form id={Styles.container} onSubmit={handleSubmit}>
         <input type="text" value={city} onChange={handleChange} placeholder="Ingresa la ciudad o región" id={Styles.input}/>
