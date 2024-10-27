@@ -1,0 +1,132 @@
+.footerBookMyTour{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionFooter1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.contenedorLogo {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px; /* Espacio entre el logo y el mensaje */
+  }
+  
+  .logo {
+    width: 49px;
+    height: 55px;
+  }
+  
+  .mensaje {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .mainTitle {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 30px;
+    color: #464646;
+    margin: 0px;
+  }
+  
+  .blueText {
+    color: #009CDE;
+  }
+  
+  .slogan {
+    color: #464646;
+    font-size: 0.625rem;
+    font-weight: bold;
+    line-height: 30px;
+    margin: 0px;
+  }
+
+.sloganCopyright {
+    color: #464646;
+    font-size: 0.625rem;
+    font-weight: bold;
+    line-height: 30px;
+    position: absolute;
+    left: 15%;
+  }
+  
+
+.sectionFooter2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 33%;
+}
+
+.sectionFooter3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 33%;
+    background-color: white;
+}
+
+.ContendorRedes{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttonRedSocial{
+    text-decoration: none;
+    background-color: gray;
+    font-size: 25px;
+    color: white;
+    padding: 7.5px 15px;
+    border-radius: 50%;
+}
+
+.buttonRedSocial:hover{
+    background-color: red;
+}
+
+@media (max-width: 630px) {
+    
+    .sectionFooter2 {
+      position: absolute;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      width: 100%;
+      text-align: center;
+      bottom: 0;
+    }
+      
+    
+    .contenedorLogo {
+      position: absolute;
+      left: 18%;
+      transform: translateX(-50%);
+      flex-direction: row;
+      bottom: auto;
+    }
+
+    .sectionFooter3{
+      position: absolute;
+      right: 1%;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      width: 50%;
+      bottom: auto;
+  }
+      
+}
