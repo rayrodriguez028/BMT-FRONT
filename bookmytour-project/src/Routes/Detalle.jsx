@@ -13,7 +13,7 @@ const Detail = () => {
   const tour = state.data.find(tour => tour.id === parseInt(id));
 
   if (!tour) {
-    return <div>Tour no encontrado</div>; // Mensaje si el tour no se encuentra
+    return <div style={{height: "100vh"}}>Tour no encontrado</div>; // Mensaje si el tour no se encuentra
   }
 
   // Configuración del carrusel
@@ -27,11 +27,11 @@ const Detail = () => {
     autoplay: true,
     waitForAnimate: false,
     autoplaySpeed: 2000,
-    cssEase: "linear",
+    cssEase: "linear"
   };
 
   return (
-    <div style={{height:"100vh"}}>
+    <div className={Styles.mainContainer}>
       <div className={Styles.container}>
         <div className={Styles.mainImage}>
           <img src={tour.imagenes[0]} alt={tour.imagenes[0]} />
@@ -46,24 +46,24 @@ const Detail = () => {
           <div className={Styles.tourInfo}>
             <Slider {...settings}> 
               {tour.imagenes.map((image, index) => (
+                index != 0 && ( //Omitimos la primera imagen
                 <div key={index}>
                   <img src={image} alt={`Imagen del tour ${tour.nombre}`} />
                 </div>
+                )
               ))}
             </Slider> 
-            <div style={{display:'flex', alignItems:'center', marginTop: "15px"}}>
+            <div style={{display:'flex', alignItems:'center', marginTop: "30px"}}>
               <h4>{tour.nombre}</h4>
               <h5>$ {tour.precio}</h5>
             </div>
-            <div style={{display:'flex', alignItems:'center', marginTop:"10px"}}>
+            <div style={{display:'flex', alignItems:'center', marginTop:"10px", marginBottom: "10px"}}>
               <span style={{textAlign:'left'}}>{tour.ubicacion}</span>
               <span style={{textAlign:'center'}}>{tour.duracion}</span>
             </div>
           </div>
-          <div style={{padding: "0px 15px 0px 15px"}}>
+          <div id={Styles.description} >
             <p>{tour.descripcion}</p>
-          </div>
-          <div style={{padding: "0px 30px 0px 0px", marginTop: "40px"}}>
             <button onClick={() => navigate(-1)} className={Styles.btnRegresar}>
               <img src="../../public/images/Arrow left.svg" alt="" />
               Regresar
