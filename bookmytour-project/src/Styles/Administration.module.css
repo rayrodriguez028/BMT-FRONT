@@ -11,13 +11,26 @@
     justify-content: center;
     align-items: center;
 }
-#btn{
-    width:200px;
-    height: 100px ;
+.square{
+    width:300px;
+    height: 200px ;
     margin: 20px;
     border-radius: 8px;
     color: #ffffff;
     background-color: #04ADBF ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#btn{
+    width: 150px ;
+    height: 30px;
+    color: #04ADBF;
+    border-radius: 8px;
+    margin-top: 30px;
+    align-items: center;
+
 }
 @media (max-width: 768px ) {
     .noAvailable {
