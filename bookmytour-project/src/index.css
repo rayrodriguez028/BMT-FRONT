@@ -12,5 +12,16 @@ body {
   min-width: 430px;
 }
 
+.slick-slider {
+  width: 100%; 
+}
+
+.slick-slide {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: auto; 
+}
+
 
 

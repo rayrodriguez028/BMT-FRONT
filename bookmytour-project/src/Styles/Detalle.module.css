@@ -1,0 +1,134 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.mainImage {
+    position: relative;
+    width: 65%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.mainImage img{
+    width: 90%;
+    height: 63%;
+    border-radius: 20px;
+}
+
+.littleCard {
+    box-sizing: border-box;
+    padding: 25px 0px 0px 42px;
+    position: absolute;
+    bottom: 460px;
+    right: 100px;
+    width: 290px;
+    height: 246px;
+    border-radius: 24px;
+    background-color: #FFFFFF;
+}
+
+.littleCard h3 {
+    margin: 0px;
+    color: #464646;
+    font-weight: bolder;
+    font-size: 1.625rem;
+}
+
+.littleCard p {
+    color: #464646;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.littleCard button {
+    background-color: #04ADBF;
+    height: 48px;
+    width: 165px;
+    border-radius: 12px;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.tourContainer {
+    width: 40%;
+    height: 100vh;
+}
+
+.tourInfo {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0px 15px;
+}
+
+.tourInfo img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+}
+
+.tourInfo h4, .tourInfo h5 {
+    margin: 0px;
+}
+
+.tourInfo h4{
+    color: #464646;
+    font-weight: bold;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    text-align: left;
+    width: 50%;
+}
+
+.tourInfo h5{
+    color: #04ADBF;
+    font-weight: bold;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    text-align: center;
+    width: 50%;
+}
+
+.tourInfo span{
+    color: #A1A7B0;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 50%;
+}
+
+.tourInfo p{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #464646;
+}
+
+.btnRegresar {
+    width: 116px;
+    height: 32px;
+    border: none;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    font-weight: 100;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btnRegresar img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
