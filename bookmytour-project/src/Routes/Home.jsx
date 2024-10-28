@@ -1,8 +1,19 @@
 import React, { useState } from 'react'
 import Styles from '../Styles/Body.module.css'
 import Card from '../Components/Card.jsx'
+import { useContextGlobalStates } from '../Components/utils/global.context.jsx';
 
 const Home = () => {
+  const categories = [
+    "Vibra Urbana",
+    "Paraísos del Caribe",
+    "Aventura",
+    "Cultura Ancestral",
+    "Naturaleza Viva",
+    "Aromas y Sabores"
+  ];
+
+  const { state } = useContextGlobalStates();
   const [city, setCity] = useState('');
 
   const handleChange = (e) => {
@@ -29,28 +40,31 @@ const Home = () => {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
       </div>
       <div className={Styles.categories}>
-          <h2 className={Styles.subtitles}>Categorías</h2>
-          <h3>Aventura</h3>
+        <h2 className={Styles.subtitles}>Categorías</h2>
+        {categories.map((category) => (
+        <div key={category}>
+          <h3>{category}</h3>
           <div className={Styles.cardsContainer}>
-            <Card title="Nombre del tour" img="public/images/espacioImagenesTours.png" price="$000.000" description="Nemo enim ipsam voluptatem quia voluptas sit aspernatur"></Card>
-            <Card title="Nombre del tour" img="public/images/espacioImagenesTours.png" price="$000.000" description="Nemo enim ipsam voluptatem quia voluptas sit aspernatur"></Card>
-          </div>       
-          <h3>Ecoturismo</h3>
-          <div className={Styles.cardsContainer}>
-            <Card title="Nombre del tour" img="public/images/espacioImagenesTours.png" price="$000.000" description="Nemo enim ipsam voluptatem quia voluptas sit aspernatur"></Card>
-            <Card title="Nombre del tour" img="public/images/espacioImagenesTours.png" price="$000.000" description="Nemo enim ipsam voluptatem quia voluptas sit aspernatur"></Card>
+            {state.data
+              .filter((tour) => tour.categorias.includes(category))
+              .map((tour) => (
+                <Card
+                  key={tour.id}
+                  title={tour.nombre}
+                  img={tour.imagenes[0]}
+                  price={tour.precio}
+                  description={tour.resumen}
+                />
+              ))}
           </div>
+        </div>
+      ))}
       </div>
       <div className={Styles.recommendations}>
           <h2 className={Styles.subtitles}>Recomendaciones</h2>
           <div className={Styles.cardsContainer}>
-            <Card title="Nombre del tour" img="public/images/espacioImagenesTours.png" price="$000.000" description="Nemo enim ipsam voluptatem quia voluptas sit aspernatur"></Card>
-            <Card title="Nombre del tour" img="public/images/espacioImagenesTours.png" price="$000.000" description="Nemo enim ipsam voluptatem quia voluptas sit aspernatur"></Card>
+            <Card key={state.id} title={state.nombre} img="public/images/espacioImagenesTours.png" price="$000.000" description="Nemo enim ipsam voluptatem quia voluptas sit aspernatur"></Card>
           </div>       
-          <div className={Styles.cardsContainer}>
-            <Card title="Nombre del tour" img="public/images/espacioImagenesTours.png" price="$000.000" description="Nemo enim ipsam voluptatem quia voluptas sit aspernatur"></Card>
-            <Card title="Nombre del tour" img="public/images/espacioImagenesTours.png" price="$000.000" description="Nemo enim ipsam voluptatem quia voluptas sit aspernatur"></Card>
-          </div>
       </div>
     </div>
   )

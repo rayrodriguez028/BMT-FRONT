@@ -1,7 +1,7 @@
 .container {
     width: 45%;
     border-radius: 24px;
-    height: 460px;
+    height: 480px;
     border: 1px solid rgba(0, 0, 0, 0.5);
     background-color: #fff;
     margin-bottom: 20px;
@@ -15,7 +15,7 @@
 
 .container h4, .container h5, .container p {
     margin: 0px;
-    padding: 0px 25px 0px 25px;
+    padding: 0px 5px 0px 25px;
 }
 
 .container p {
@@ -34,9 +34,10 @@
     font-weight: bold;
 }
 
-@media (max-width: 660px) {
+@media (max-width: 860px) {
     .container {
-        width: 90%;
+        width: 100%;
     }
 }
+
 

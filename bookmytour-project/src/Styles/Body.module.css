@@ -88,7 +88,7 @@
 
 .categories {
     color: #464646;
-    padding: 0px 100px 0px 100px;
+    padding: 0px 350px 0px 350px;
 }
 
 .categories h3{
@@ -102,6 +102,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .recommendations {
@@ -122,12 +123,39 @@
     text-align: center;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1700px) {
     .categories {
-        padding: 0px 50px 0px 50px;
+        padding: 0px 250px 0px 250px;
     }
     .recommendations {
-        padding: 0px 50px 0px 50px;
+        padding: 0px 250px 0px 250px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .categories {
+        padding: 0px 150px 0px 150px;
+    }
+    .recommendations {
+        padding: 0px 150px 0px 150px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .categories {
+        padding: 0px 100px 0px 100px;
+    }
+    .recommendations {
+        padding: 0px 100px 0px 100px;
+    }
+}
+
+@media (max-width: 860px) {
+    .categories {
+        padding: 0px 150px 0px 150px;
+    }
+    .recommendations {
+        padding: 0px 150px 0px 150px;
     }
 }
 
@@ -145,6 +173,13 @@
     .cardsContainer {
         flex-direction: column;
         align-items: center;
+    }
+
+    .categories {
+        padding: 0px 50px 0px 50px;
+    }
+    .recommendations {
+        padding: 0px 50px 0px 50px;
     }
 }
 
