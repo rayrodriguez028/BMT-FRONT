@@ -7,7 +7,7 @@ const Footer = () => {
         <footer className={StylesFooter.footerBookMyTour}>
             <section className={StylesFooter.sectionFooter1}>
               <Link to={routes.home} className={StylesFooter.contenedorLogo}>
-                <img className={StylesFooter.logo} src="public/images/logosobreblanco.svg" alt="Logo-LightMode" />
+                <img className={StylesFooter.logo} src="../../public/images/logosobreblanco.svg" alt="Logo-LightMode" />
                 <div>
                   <h1 className={StylesFooter.mainTitle}><span className={StylesFooter.blueText}>BOOK</span> MY TOUR</h1>
                   <h2 className={StylesFooter.slogan}>Keep  calm  and  travel on</h2>
@@ -26,16 +26,16 @@ const Footer = () => {
                 <nav>
                   <ul>
                     <li className={StylesFooter.buttonRedSocial}>
-                      <img src="public/images/espacioImagenRedesSociales.png" alt="" />
+                      <img src="../../public/images/espacioImagenRedesSociales.png" alt="" />
                     </li>
                     <li className={StylesFooter.buttonRedSocial}>
-                      <img src="public/images/espacioImagenRedesSociales.png" alt="" />
+                      <img src="../../public/images/espacioImagenRedesSociales.png" alt="" />
                     </li>
                     <li className={StylesFooter.buttonRedSocial}>
-                      <img src="public/images/espacioImagenRedesSociales.png" alt="" />
+                      <img src="../../public/images/espacioImagenRedesSociales.png" alt="" />
                     </li>
                     <li className={StylesFooter.buttonRedSocial}>
-                      <img src="public/images/espacioImagenRedesSociales.png" alt="" />
+                      <img src="../../public/images/espacioImagenRedesSociales.png" alt="" />
                     </li>
                   </ul>
                 </nav>

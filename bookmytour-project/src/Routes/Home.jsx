@@ -70,7 +70,8 @@ const Home = () => {
               <h3>{category}</h3>
               <div className={Styles.cardsContainer}>
                 {randomTours.map((tour) => (
-                  <Card
+                  <Card 
+                    id={tour.id}
                     key={tour.id}
                     title={tour.nombre}
                     img={tour.imagenes[0]}
@@ -88,6 +89,7 @@ const Home = () => {
         <div className={Styles.cardsContainer}>
           {randomTours.map((tour) => (
             <Card 
+              id={tour.id}
               key={tour.id} 
               title={tour.nombre} 
               img={tour.imagenes[0]} 
