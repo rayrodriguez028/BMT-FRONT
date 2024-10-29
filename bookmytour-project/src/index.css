@@ -23,5 +23,9 @@ body {
   height: auto; 
 }
 
+.slick-arrow {
+  display: none !important;
+}
+
 
 

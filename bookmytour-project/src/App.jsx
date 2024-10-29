@@ -4,10 +4,12 @@ import Layout from './Layouts/Layout'
 import Home from './Routes/Home'
 import Administracion from './Routes/Administracion'
 import Detalle from './Routes/Detalle'
+import ScrollToTop from './Components/ScrollToTop'
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path={routes.home} element={<Layout />}>
           <Route path={routes.home} element={<Home />} />
