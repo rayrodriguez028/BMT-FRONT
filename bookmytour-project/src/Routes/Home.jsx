@@ -43,14 +43,16 @@ const Home = () => {
 
   return (
     <div>
-      <img id={Styles.mainImage} src='public/images/espacioParaImagenPrincipal.png' alt='Main-Image'/>
-      <form id={Styles.container} onSubmit={handleSubmit}>
-        <input type="text" value={city} onChange={handleChange} placeholder="Ingresa la ciudad o región" id={Styles.input}/>
-        <button id={Styles.btnSubmit} className={Styles.btnsForm} type='submit'>Buscar</button>
-        <button type='button' id={Styles.btnFilter} className={Styles.btnsForm}>
-          <img id={Styles.filterIcon} src='public/images/filterIcon.svg' alt='Filter-Icon' />
-        </button>
-      </form>
+      <div style={{position:'relative'}}>
+        <img id={Styles.mainImage} src='../../public/images/imagen-marca.png' alt='Main-Image'/>
+        <form id={Styles.container} onSubmit={handleSubmit}>
+          <input type="text" value={city} onChange={handleChange} placeholder="Ingresa la ciudad o región" id={Styles.input}/>
+          <button id={Styles.btnSubmit} className={Styles.btnsForm} type='submit'>Buscar</button>
+          <button type='button' id={Styles.btnFilter} className={Styles.btnsForm}>
+            <img id={Styles.filterIcon} src='public/images/filterIcon.svg' alt='Filter-Icon' />
+          </button>
+        </form>
+      </div>   
       <div className={Styles.sectionContainer}>
         <h2>Toma fotos y compártelas como nunca antes</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Styles from '../Styles/Detalle.module.css'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useContextGlobalStates } from '../Components/utils/global.context';
@@ -8,6 +8,7 @@ const Detail = () => {
   const { id } = useParams();
   const { state } = useContextGlobalStates();
   const navigate = useNavigate();
+  const [zoomImage, setZoomImage] = useState(null);
 
   // Filtrar el tour específico según el ID
   const tour = state.data.find(tour => tour.id === parseInt(id));
@@ -32,6 +33,13 @@ const Detail = () => {
 
   return (
     <div className={Styles.mainContainer}>
+      <div style={{marginTop: "120px"}}>
+        <button onClick={() => navigate(-1)} className={Styles.btnRegresar}>
+          <img src="../../public/images/Arrow left.svg" alt="" />
+          Regresar
+        </button>
+      </div>
+
       <div className={Styles.container}>
         <div className={Styles.mainImage}>
           <img src={tour.imagenes[0]} alt={tour.imagenes[0]} />
@@ -47,8 +55,13 @@ const Detail = () => {
             <Slider {...settings}> 
               {tour.imagenes.map((image, index) => (
                 index != 0 && ( //Omitimos la primera imagen
-                <div key={index}>
-                  <img src={image} alt={`Imagen del tour ${tour.nombre}`} />
+                <div key={index} className={Styles.imageWrapper}>
+                  <img 
+                    className={Styles.carouselImage}
+                    src={image} 
+                    alt={`Imagen del tour ${tour.nombre}`} 
+                    onClick={() => setZoomImage(image)}
+                  />
                 </div>
                 )
               ))}
@@ -64,12 +77,15 @@ const Detail = () => {
           </div>
           <div id={Styles.description} >
             <p>{tour.descripcion}</p>
-            <button onClick={() => navigate(-1)} className={Styles.btnRegresar}>
-              <img src="../../public/images/Arrow left.svg" alt="" />
-              Regresar
-            </button>
           </div>
         </div>
+
+        {zoomImage && (
+          <div className={Styles.lightbox} onClick={() => setZoomImage(null)}>
+            <img src={zoomImage} alt="Zoom" />
+          </div>
+        )}
+
       </div>
     </div>
   )
