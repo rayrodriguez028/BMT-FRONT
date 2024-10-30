@@ -22,7 +22,7 @@ const Header = () => {
         <ul id={Styles.nav}>
           {/* Logo y título */}
           <Link to={routes.home} className={Styles.leftSection}>
-            <img id={Styles.logo} src="public/images/logosobreblanco.svg" alt="Logo-LightMode" />
+            <img id={Styles.logo} src="../../public/images/logosobreblanco.svg" alt="Logo-LightMode" />
             <div>
               <h1 id={Styles.mainTitle}><span id={Styles.blueText}>BOOK</span> MY TOUR</h1>
               <h2 id={Styles.slogan}>Keep  calm  and  travel on</h2>

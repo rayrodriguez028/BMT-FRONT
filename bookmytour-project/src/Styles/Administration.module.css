@@ -1,56 +1,85 @@
-
-.admin{
+.admin {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 81vh;
 }
-.admin h1{
-    display: flex;
-    justify-content: center;
+
+.admin h1 {
+    font-size: 3rem;
+    color: #04ADBF;
+    text-align: center;
 }
-.button{
+
+.button {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
-.square{
-    width:300px;
-    height: 200px ;
+
+.square {
+    height: 240px ;
     margin: 20px;
-    border-radius: 8px;
+    border-radius: 24px;
     color: #ffffff;
     background-color: #04ADBF ;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    flex-basis: 18%;
 }
 
-#btn{
-    width: 150px ;
-    height: 30px;
+.square h3{
+    font-size: 1.625rem;
+    line-height: 36px;
+    font-weight: bolder;
+}
+
+#btn {
+    width: 165px ;
+    height: 48px;
     color: #04ADBF;
-    border-radius: 8px;
-    margin-top: 30px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
     align-items: center;
-
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 24px;
+    font-weight: 500;
 }
+
+@media (max-width: 1300px ) {
+    .square {
+        flex-basis: 28%;
+    }
+}
+
 @media (max-width: 768px ) {
     .noAvailable {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         text-align: center;
+        padding: 0px 20px;
+        height: 100vh;
     }
-    .admin{
+
+    .admin {
         display: none;
     }
 }
 @media (min-width:769px) {
-    .noAvailable{
+    .noAvailable {
         display: none;
     }
-    .admin{
-        display: block;
+
+    .admin {
+        display: flex;
     }
     
 }

@@ -8,8 +8,23 @@
 body {
   margin: 0px;
   padding: 0px;
-  padding-top: 75px;
-  min-width: 360px;
+  margin-top: 75px;
+  min-width: 430px;
+}
+
+.slick-slider {
+  width: 100%; 
+}
+
+.slick-slide {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: auto; 
+}
+
+.slick-arrow {
+  display: none !important;
 }
 
 

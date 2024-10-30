@@ -1,0 +1,204 @@
+#mainImage {
+    width: 100%;
+    height: 600px;
+    border-radius: 20px 20px 0px 0px;
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 55%;
+    width: 100%;
+    gap: 30px;
+}
+
+#container::before {
+    content: "";
+    background-image: url('../../public/images/searchIcon.svg');
+    width: 29px;
+    height: 24px;
+    position: relative;
+    left: 70px;
+
+}
+
+#input {
+    background-color: #F9F9FB;
+    color: #CED0D4;
+    width: 50%;
+    height: 48px;
+    border-radius: 12px;
+    border: 0px;
+    font-size: 1.25rem;
+    padding-left: 50px;
+}
+
+#filterIcon {
+    width: 26px;
+    height: 17px;
+}
+
+.btnsForm {
+    background-color: #04ADBF;
+    color: #FFFFFF;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 1rem;
+    border: 0px;
+    cursor: pointer;
+}
+
+#btnSubmit {
+    width: 135px;
+    height: 48px;
+}
+
+#btnFilter {
+    width: 50px;
+    height: 48px;
+}
+
+.sectionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #DADADA;
+}
+
+.sectionContainer h2 {
+    color: #04ADBF;
+    font-size: 3rem;
+    font-weight: bolder;
+    line-height: 72px;
+    width: 70%;
+    margin-bottom: 0px;
+    margin-top: 78px;
+}
+
+.sectionContainer p {
+    font-size: 1.5rem;
+    line-height: 50px;
+    color: #000;
+    width: 70%;
+    margin-bottom: 78px;
+}
+
+.categories {
+    color: #464646;
+    padding: 0px 350px 0px 350px;
+}
+
+.categories h3{
+    font-size: 2rem;
+    color: #7EA629;
+    line-height: 4.5rem;
+    font-weight: bolder;
+}
+
+.cardsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.recommendations {
+    margin-top: 70px;
+    padding: 0px 350px 0px 350px;
+    background-color: #027373;
+    border-radius: 35px 35px 0px 0px;
+}
+
+.recommendations h2 {
+    color: #FFFFFF;
+}
+
+.subtitles {
+    font-weight: bolder;
+    line-height: 72px;
+    font-size: 2.25rem;
+    text-align: center;
+}
+
+@media (max-width: 1700px) {
+    .categories {
+        padding: 0px 250px 0px 250px;
+    }
+    .recommendations {
+        padding: 0px 250px 0px 250px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .categories {
+        padding: 0px 150px 0px 150px;
+    }
+    .recommendations {
+        padding: 0px 150px 0px 150px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .categories {
+        padding: 0px 100px 0px 100px;
+    }
+    .recommendations {
+        padding: 0px 100px 0px 100px;
+    }
+}
+
+@media (max-width: 860px) {
+    .categories {
+        padding: 0px 150px 0px 150px;
+    }
+    .recommendations {
+        padding: 0px 150px 0px 150px;
+    }
+}
+
+@media (max-width: 770px) {
+    #container {
+        justify-content: flex-start;
+    }
+
+    #input {
+        width: 40%;
+    }
+}
+
+@media (max-width: 660px) {
+    .cardsContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .categories {
+        padding: 0px 50px 0px 50px;
+    }
+    .recommendations {
+        padding: 0px 50px 0px 50px;
+    }
+}
+
+@media (max-width: 635px) {
+    #input {
+        width: 55%;
+        font-size: 1rem;
+    }
+
+    #btnSubmit {
+        display: none;
+    }
+
+    #container {
+        gap: 20px;
+        justify-content: flex-start;
+    }
+
+    #container::before {
+        left:58px;
+    }
+}
