@@ -63,7 +63,7 @@
 .sectionContainer {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid #DADADA;
@@ -182,6 +182,14 @@
     .recommendations {
         padding: 0px 50px 0px 50px;
     }
+
+    .sectionContainer p, .sectionContainer h2 {
+        width: 90%;
+    }
+
+    .sectionContainer h2 {
+        margin-top: 25px;
+    }
 }
 
 @media (max-width: 635px) {
@@ -201,5 +209,61 @@
 
     #container::before {
         left:58px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .sectionContainer h2 {
+        font-size: 2.1rem;
+        margin-top: 0px;
+    }
+
+    .sectionContainer p {
+        font-size: 1.1rem;
+    }
+
+    .subtitles {
+        font-size: 2rem;
+    }
+
+    .categories h3 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 430px) {
+
+    #container::before {
+        left:50px;
+    }
+
+    #container {
+        gap: 10px;
+    }
+
+    .categories {
+        padding: 0px 20px 0px 20px;
+    }
+
+    .recommendations {
+        padding: 0px 20px 0px 20px;
+    }
+
+    .sectionContainer h2 {
+        font-size: 2.1rem;
+        margin-top: 0px;
+    }
+
+    .sectionContainer p {
+        font-size: 1.1rem;
+    }
+
+    .subtitles {
+        font-size: 1.9rem;
+    }
+
+    .categories h3 {
+        font-size: 1.7rem;
     }
 }

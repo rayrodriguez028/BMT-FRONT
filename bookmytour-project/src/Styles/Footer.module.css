@@ -136,3 +136,19 @@
     padding: 35px 0px 20px 0px;
   }
 }
+
+@media (max-width: 430px) {  
+  .sectionFooter2 p, .sectionFooter3, .mainTitle {
+    font-size: 0.8rem;
+  }
+
+  .slogan, .sloganCopyright {
+    font-size: 0.425rem;
+  }
+
+  .buttonRedSocial > img {
+    width: auto;
+    height: auto;
+  }
+
+}

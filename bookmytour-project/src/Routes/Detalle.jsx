@@ -46,8 +46,7 @@ const Detail = () => {
           <div className={Styles.littleCard}>
             <h3>{tour.nombre}</h3>
             <p>
-              Long-term rental of villas with a guarantee of conformity with
-              photographs
+              {tour.card}
             </p>
             <button>¡Agenda ahora!</button>
           </div>
