@@ -16,12 +16,13 @@
 
 #container::before {
     content: "";
-    background-image: url('/images/searchIcon.svg');
+    background-image: url('/images/searchIconBlack.svg');
     width: 29px;
     height: 24px;
     position: relative;
     left: 70px;
-
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
 }
 
 #input {
@@ -33,6 +34,16 @@
     border: 0px;
     font-size: 1.25rem;
     padding-left: 50px;
+    transition: color 0.3s ease;
+}
+
+#input:focus {
+    color: #a8a8a9;
+    opacity: 1;
+}
+
+#container:focus-within::before {
+    opacity: 1; 
 }
 
 #filterIcon {
