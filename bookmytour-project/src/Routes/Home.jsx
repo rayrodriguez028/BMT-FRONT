@@ -46,7 +46,7 @@ const Home = () => {
       <div style={{ position: "relative" }}>
         <img
           id={Styles.mainImage}
-          src="../../public/images/imagen-marca.png"
+          src="/images/imagen-marca.png"
           alt="Main-Image"
         />
         <form id={Styles.container} onSubmit={handleSubmit}>
@@ -71,7 +71,7 @@ const Home = () => {
           >
             <img
               id={Styles.filterIcon}
-              src="public/images/filterIcon.svg"
+              src="/images/filterIcon.svg"
               alt="Filter-Icon"
             />
           </button>

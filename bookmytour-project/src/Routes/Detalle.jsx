@@ -35,7 +35,7 @@ const Detail = () => {
     <div className={Styles.mainContainer}>
       <div style={{ marginTop: "120px" }}>
         <button onClick={() => navigate(-1)} className={Styles.btnRegresar}>
-          <img src="../../public/images/Arrow left.svg" alt="" />
+          <img src="/images/Arrow left.svg" alt="" />
           Regresar
         </button>
       </div>

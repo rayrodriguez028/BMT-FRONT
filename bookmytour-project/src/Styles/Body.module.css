@@ -16,7 +16,7 @@
 
 #container::before {
     content: "";
-    background-image: url('../../public/images/searchIcon.svg');
+    background-image: url('/images/searchIcon.svg');
     width: 29px;
     height: 24px;
     position: relative;
