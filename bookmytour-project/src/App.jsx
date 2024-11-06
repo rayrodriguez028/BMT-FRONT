@@ -5,6 +5,7 @@ import Home from './Routes/Home'
 import Administracion from './Routes/Administracion'
 import Detalle from './Routes/Detalle'
 import ScrollToTop from './Components/ScrollToTop'
+import Formulario from './Routes/Formulario'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path={routes.administracion} element={<Administracion />} />
           <Route path="detalle/:id" element={<Detalle />} />
           <Route path={routes.notFound} element={<div style={{height:"100vh", display:'flex', alignItems:'center', justifyContent: 'center'}}><h1>Error 404 - Page not Found</h1></div>} />
+          <Route path={routes.formulario} element={<Formulario />} />
         </Route>
       </Routes>
     </>
