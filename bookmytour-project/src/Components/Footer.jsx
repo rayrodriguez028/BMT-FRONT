@@ -26,16 +26,16 @@ const Footer = () => {
                 <nav>
                   <ul>
                     <li className={StylesFooter.buttonRedSocial}>
-                      <img src="/images/espacioImagenRedesSociales.png" alt="" />
+                      <img src="/icons/instagram.svg" alt="instagram" />
                     </li>
                     <li className={StylesFooter.buttonRedSocial}>
-                      <img src="/images/espacioImagenRedesSociales.png" alt="" />
+                      <img src="/icons/facebook.svg" alt="facebook" />
                     </li>
                     <li className={StylesFooter.buttonRedSocial}>
-                      <img src="/images/espacioImagenRedesSociales.png" alt="" />
+                      <img src="/icons/linkedin.svg" alt="linkedin" />
                     </li>
                     <li className={StylesFooter.buttonRedSocial}>
-                      <img src="/images/espacioImagenRedesSociales.png" alt="" />
+                      <img src="/icons/twitter.svg" alt="twitter" />
                     </li>
                   </ul>
                 </nav>
