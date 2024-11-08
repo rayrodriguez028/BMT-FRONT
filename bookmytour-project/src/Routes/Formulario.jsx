@@ -1,14 +1,18 @@
+import Styles from '../Styles/Formulario.module.css'
+
+
 const Formulario =()=>{
     return (
         <>
-        <div className="img">
+        <div className={Styles.container}> 
+        <div className={Styles.img}>
         <img src="/images/imgForm.png" alt="Imagen Formulario" />
         </div>
-        <div className="titulos ">
+        <div className={Styles.titulos }>
         <h1>Crear cuenta</h1>
         <h3>Ya tienes una cuenta ? </h3>
         </div>
-        <div className="Form">
+        <div className={Styles.form}> 
         <h4>Nombre</h4>
         <input  type="text"  placeholder="Ingresa tu nombre" required />
         <h4>Apellido</h4>
@@ -19,10 +23,10 @@ const Formulario =()=>{
         <input type="password"  placeholder="Ingresa tu contraseña" required />
 
         <button>Crear cuenta</button>
-        </div>
+         </div> 
         
 
-        
+        </div>
         
         
         

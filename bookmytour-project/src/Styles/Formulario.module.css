@@ -1,0 +1,23 @@
+.container{
+    color:#FFFFFF;
+    background-color:#027373;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+   
+}
+.img{
+    width:40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:70%;
+    margin: 20px;
+}
