@@ -1,6 +1,6 @@
 #mainImage {
     width: 100%;
-    height: 600px;
+    height: auto;
     border-radius: 20px 20px 0px 0px;
 }
 
@@ -9,19 +9,20 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 55%;
+    top: 65%;
     width: 100%;
     gap: 30px;
 }
 
 #container::before {
     content: "";
-    background-image: url('../../public/images/searchIcon.svg');
+    background-image: url('/images/searchIconBlack.svg');
     width: 29px;
     height: 24px;
     position: relative;
     left: 70px;
-
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
 }
 
 #input {
@@ -33,6 +34,16 @@
     border: 0px;
     font-size: 1.25rem;
     padding-left: 50px;
+    transition: color 0.3s ease;
+}
+
+#input:focus {
+    color: #a8a8a9;
+    opacity: 1;
+}
+
+#container:focus-within::before {
+    opacity: 1; 
 }
 
 #filterIcon {
@@ -63,6 +74,7 @@
 .sectionContainer {
     display: flex;
     flex-direction: column;
+    text-align: left;
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid #DADADA;
@@ -80,7 +92,7 @@
 
 .sectionContainer p {
     font-size: 1.5rem;
-    line-height: 50px;
+    line-height: 40px;
     color: #000;
     width: 70%;
     margin-bottom: 78px;
@@ -181,6 +193,14 @@
     .recommendations {
         padding: 0px 50px 0px 50px;
     }
+
+    .sectionContainer p, .sectionContainer h2 {
+        width: 90%;
+    }
+
+    .sectionContainer h2 {
+        margin-top: 25px;
+    }
 }
 
 @media (max-width: 635px) {
@@ -200,5 +220,61 @@
 
     #container::before {
         left:58px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .sectionContainer h2 {
+        font-size: 2.1rem;
+        margin-top: 0px;
+    }
+
+    .sectionContainer p {
+        font-size: 1.1rem;
+    }
+
+    .subtitles {
+        font-size: 2rem;
+    }
+
+    .categories h3 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 430px) {
+
+    #container::before {
+        left:50px;
+    }
+
+    #container {
+        gap: 10px;
+    }
+
+    .categories {
+        padding: 0px 20px 0px 20px;
+    }
+
+    .recommendations {
+        padding: 0px 20px 0px 20px;
+    }
+
+    .sectionContainer h2 {
+        font-size: 2.1rem;
+        margin-top: 0px;
+    }
+
+    .sectionContainer p {
+        font-size: 1.1rem;
+    }
+
+    .subtitles {
+        font-size: 1.9rem;
+    }
+
+    .categories h3 {
+        font-size: 1.7rem;
     }
 }

@@ -1,5 +1,7 @@
 //import React from 'react'
+import { Link } from 'react-router-dom'
 import Styles from '../Styles/Administration.module.css'
+import { routes } from '../Components/utils/routes'
 
 const Administracion = () => {
   return (
@@ -9,15 +11,17 @@ const Administracion = () => {
       <div className={Styles.button}> 
         <div className={Styles.square}>
           <h3>PRODUCTOS </h3>
-        <button id={Styles.btn}>Listar productos</button>
+          <Link to={routes.productos}>
+            <button id={Styles.btn}>Listar productos</button>
+          </Link>  
         </div>
       <div className={Styles.square}>
         <h3>USUARIO </h3>
-      <button id={Styles.btn}>Listar usuarios</button>
+        <button id={Styles.btn}>Listar usuarios</button>
       </div>
       <div className={Styles.square}>
         <h3>RESERVAS </h3>
-      <button id={Styles.btn}>Listar reservas</button>
+        <button id={Styles.btn}>Listar reservas</button>
       </div>
       
       </div>

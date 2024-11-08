@@ -2,7 +2,7 @@ const Formulario =()=>{
     return (
         <>
         <div className="img">
-        <img src="\imgForm.png"/>
+        <img src="/images/imgForm.png" alt="Imagen Formulario" />
         </div>
         <div className="titulos ">
         <h1>Crear cuenta</h1>
