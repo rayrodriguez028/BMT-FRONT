@@ -2,14 +2,69 @@ import React, { useEffect, useState } from "react";
 import Styles from "../Styles/Body.module.css";
 import Card from "../Components/Card.jsx";
 import { useContextGlobalStates } from "../Components/utils/global.context.jsx";
+import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  
+  // Configuración del carrusel
+  var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 860,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
+
   const categories = [
-    "Vibra Urbana",
-    "Paraísos del Caribe",
-    "Aventura",
-    "Naturaleza Viva",
-    "Aromas y Sabores",
+    { 
+      "nombre": "Vibra Urbana",
+      "img": "/public/images/AmazonasColombiano1.jpg"
+    },
+    { 
+      "nombre": "Paraísos del Caribe",
+      "img": "/public/images/AmazonasColombiano1.jpg"
+    },
+    { 
+      "nombre": "Aventura",
+      "img": "/public/images/AmazonasColombiano1.jpg"
+    },
+    { 
+      "nombre": "Naturaleza Viva",
+      "img": "/public/images/AmazonasColombiano1.jpg"
+    },
+    { 
+      "nombre": "Aromas y Sabores",
+      "img": "/public/images/AmazonasColombiano1.jpg"
+    }
   ];
 
   const { state } = useContextGlobalStates();
@@ -90,7 +145,21 @@ const Home = () => {
       </div>
       <div className={Styles.categories}>
         <h2 className={Styles.subtitles}>Categorías</h2>
-        {categories.map((category) => {
+        <div className="slider-container">
+          <Slider {...settings}>
+            {categories.map((item) => (
+              <Link key={item.nombre} to={`${window.location.origin}/Categorias/${item.nombre}`}>
+                <div className={Styles.carouselItem}>
+                  <div className={Styles.imageContainer}>
+                    <img src={item.img} alt={item.nombre} className={Styles.carouselImage} />
+                    <h3 className={Styles.imageText}>{item.nombre}</h3>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </Slider>
+        </div>
+        {/* {categories.map((category) => {
           const filteredTours = state.data.filter((tour) =>
             tour.categorias.includes(category)
           );
@@ -117,7 +186,7 @@ const Home = () => {
               </div>
             </div>
           );
-        })}
+        })} */}
       </div>
       <div className={Styles.recommendations}>
         <h2 className={Styles.subtitles}>Recomendaciones</h2>
