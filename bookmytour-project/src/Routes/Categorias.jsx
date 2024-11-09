@@ -111,7 +111,7 @@ const Categorias = () => {
                     type="text"
                     value={filter}
                     onChange={handleChange}
-                    placeholder="Ingresa la ciudad o región"
+                    placeholder="Buscar"
                     id='input'
                 />
                 <div className='sortButtonContainer btnsForm'>

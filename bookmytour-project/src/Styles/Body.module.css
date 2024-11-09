@@ -103,6 +103,11 @@
     padding: 0px 50px 0px 50px;
 }
 
+.products {
+    color: #464646;
+    padding: 0px 350px 0px 350px;
+}
+
 .categories h3{
     font-size: 1.5rem;
     color: #7EA629;
@@ -186,10 +191,18 @@
     .recommendations {
         padding: 0px 250px 0px 250px;
     }
+
+    .products {
+        padding: 0px 250px 0px 250px;
+    }
 }
 
 @media (max-width: 1400px) {
     .recommendations {
+        padding: 0px 150px 0px 150px;
+    }
+
+    .products {
         padding: 0px 150px 0px 150px;
     }
 }
@@ -198,10 +211,18 @@
     .recommendations {
         padding: 0px 100px 0px 100px;
     }
+
+    .products {
+        padding: 0px 100px 0px 100px;
+    }
 }
 
 @media (max-width: 860px) {
     .recommendations {
+        padding: 0px 150px 0px 150px;
+    }
+
+    .products {
         padding: 0px 150px 0px 150px;
     }
 }
@@ -223,6 +244,10 @@
     }
 
     .recommendations {
+        padding: 0px 50px 0px 50px;
+    }
+
+    .products {
         padding: 0px 50px 0px 50px;
     }
 
@@ -283,6 +308,10 @@
     }
 
     .categories {
+        padding: 0px 20px 0px 20px;
+    }
+
+    .products {
         padding: 0px 20px 0px 20px;
     }
 
