@@ -122,7 +122,7 @@ const Formulario = () => {
           <div className={Styles.formHeader}>
             <div className={Styles.titulos}>
               <h1>Crear cuenta</h1>
-              <div style={{ display: "flex" }}>
+              <div style={{ display: "flex", alignItems: "flex-end" }}>
                 <h3>¿Ya tienes una cuenta?</h3>
                 <Link to="/login">
                   <span>Log In</span>
@@ -142,7 +142,7 @@ const Formulario = () => {
           {windowWidth > 1100 ? (
             <div className={Styles.titulos}>
               <h1>Crear cuenta</h1>
-              <div style={{ display: "flex" }}>
+              <div style={{ display: "flex", alignItems: "flex-end" }}>
                 <h3>¿Ya tienes una cuenta?</h3>
                 <Link to="/login">
                   <span>Log In</span>
