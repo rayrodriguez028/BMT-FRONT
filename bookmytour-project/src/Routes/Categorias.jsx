@@ -13,6 +13,13 @@ const Categorias = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 2;
 
+     // Reset filters and pagination when category changes
+    useEffect(() => {
+        setFilter("");
+        setSortOrder("none");
+        setCurrentPage(1);
+    }, [nombre]);
+
     // Filtrar los elementos de acuerdo a la categoría y al filtro de búsqueda
     let filteredData = state.data.filter((tour) => {
         const isInCategory = tour.categorias === nombre;
