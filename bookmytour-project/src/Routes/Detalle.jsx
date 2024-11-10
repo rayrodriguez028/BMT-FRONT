@@ -28,6 +28,7 @@ const Detail = () => {
     autoplay: true,
     waitForAnimate: false,
     autoplaySpeed: 2000,
+    arrows: false,
     cssEase: "linear",
   };
 
