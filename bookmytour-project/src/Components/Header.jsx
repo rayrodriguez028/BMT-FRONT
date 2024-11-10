@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Styles from '../Styles/Header.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { routes } from './utils/routes'
 
 const Header = () => {
   const [isMenuOpenDesktop, setIsMenuOpenDesktop] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
+
+  // Obtener la ubicación actual usando useLocation
+  const location = useLocation();
 
   const toggleMenuDesktop = () => {
     setIsMenuOpenDesktop(prevState => !prevState);
@@ -88,12 +91,16 @@ const Header = () => {
           ) : 
           (
             <div className={Styles.rightSection}>
-              <Link to="/signup" id={Styles.signUpBtn} className={Styles.headerBtns}>
-                Crear cuenta
-              </Link>
-              <Link to="/login" id={Styles.loginBtn} className={Styles.headerBtns}>
-                Iniciar sesión
-              </Link>
+              {location.pathname !== '/signup' && (
+                <Link to="/signup" id={Styles.signUpBtn} className={Styles.headerBtns}>
+                  Crear cuenta
+                </Link>
+              )}
+              {location.pathname !== '/login' && (
+                <Link to="/login" id={Styles.loginBtn} className={Styles.headerBtns}>
+                  Iniciar sesión
+                </Link>
+              )}
             </div>  
           )}
 
@@ -123,8 +130,12 @@ const Header = () => {
               <div className={`${Styles.blurredBackground} ${isMenuOpen ? Styles.blurredBackgroundEnter : Styles.blurredBackgroundExit}`} onClick={closeMenu}></div>
               <div className={`${Styles.dropdownMenu} ${isMenuOpen ? Styles.dropdownMenuEnter : Styles.dropdownMenuExit}`}>
                 <h3>Menú</h3>
-                <Link to="/signup" onClick={closeMenu}>Crear cuenta</Link>
-                <Link to="/login" onClick={closeMenu}>Iniciar sesión</Link>
+                {location.pathname !== '/signup' && (
+                  <Link to="/signup" onClick={closeMenu}>Crear cuenta</Link>
+                )}
+                {location.pathname !== '/login' && (
+                  <Link to="/login" onClick={closeMenu}>Iniciar sesión</Link>
+                )}
               </div>
             </div>  
           )}      
