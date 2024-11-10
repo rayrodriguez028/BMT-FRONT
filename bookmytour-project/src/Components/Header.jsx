@@ -88,10 +88,10 @@ const Header = () => {
           ) : 
           (
             <div className={Styles.rightSection}>
-              <Link to="" id={Styles.signUpBtn} className={Styles.headerBtns}>
+              <Link to="/signup" id={Styles.signUpBtn} className={Styles.headerBtns}>
                 Crear cuenta
               </Link>
-              <Link to="" id={Styles.loginBtn} className={Styles.headerBtns}>
+              <Link to="/login" id={Styles.loginBtn} className={Styles.headerBtns}>
                 Iniciar sesión
               </Link>
             </div>  
@@ -123,8 +123,8 @@ const Header = () => {
               <div className={`${Styles.blurredBackground} ${isMenuOpen ? Styles.blurredBackgroundEnter : Styles.blurredBackgroundExit}`} onClick={closeMenu}></div>
               <div className={`${Styles.dropdownMenu} ${isMenuOpen ? Styles.dropdownMenuEnter : Styles.dropdownMenuExit}`}>
                 <h3>Menú</h3>
-                <Link to="" onClick={closeMenu}>Crear cuenta</Link>
-                <Link to="" onClick={closeMenu}>Iniciar sesión</Link>
+                <Link to="/signup" onClick={closeMenu}>Crear cuenta</Link>
+                <Link to="/login" onClick={closeMenu}>Iniciar sesión</Link>
               </div>
             </div>  
           )}      
