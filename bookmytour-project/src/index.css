@@ -12,19 +12,8 @@ body {
   min-width: 360px;
 }
 
-.slick-slider {
-  width: 100%; 
-}
-
-.slick-slide {
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  height: auto; 
-}
-
-.slick-arrow {
-  display: none !important;
+.slick-next::before, .slick-prev::before {
+  color: #7EA629 !important;
 }
 
 
