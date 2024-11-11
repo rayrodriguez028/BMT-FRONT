@@ -13,13 +13,20 @@ const Categorias = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 2;
 
-     // Reset filters and pagination when category changes
+    // Reiniciar filtros y paginacion cuando cambia la categoria
     useEffect(() => {
         setFilter("");
         setSortOrder("none");
         setCurrentPage(1);
     }, [nombre]);
 
+     // Find the selected category
+     const selectedCategory = state.categories.find(category => category.nombre === nombre);
+
+     // If the category is found, display the image and description
+     const categoryImage = selectedCategory ? selectedCategory.imagen : '';
+     const categoryDescription = selectedCategory ? selectedCategory.descripcion : '';
+ 
     // Filtrar los elementos de acuerdo a la categoría y al filtro de búsqueda
     let filteredData = state.data.filter((tour) => {
         const isInCategory = tour.categorias === nombre;
@@ -67,14 +74,6 @@ const Categorias = () => {
         }
     };
 
-    const categories = [
-        "Vibra Urbana", 
-        "Paraísos del Caribe",
-        "Aventura",
-        "Naturaleza Viva",
-        "Aromas y Sabores",
-    ];
-
     const handleChange = (e) => {
         setFilter(e.target.value);
     };
@@ -98,19 +97,19 @@ const Categorias = () => {
         <div style={{marginTop:'85px'}}>
             <h2 className='mainTitle'>Tours {nombre}</h2>
             <div style={{display:'flex', justifyContent:'center', borderBottom:'2px solid #027373'}}>
-                {categories.map((item) => {
+                {state.categories.map((item) => {
                     return (
-                        <Link to={`${window.location.origin}/categorias/${item}`} key={item} 
-                          className={`btnsCategorias ${item === nombre ? 'active' : ''}`}>
-                          {item}
+                        <Link to={`${window.location.origin}/categorias/${item.nombre}`} key={item.nombre} 
+                          className={`btnsCategorias ${item.nombre === nombre ? 'active' : ''}`}>
+                          {item.nombre}
                         </Link>
                     );
                 })}
             </div>
-            <img id="mainImage" src="/images/imagen-marca.png" alt="Main-Image" />
+            <img id="mainImage" src={categoryImage} alt={nombre} />
             <div className='sectionContainer'>
                 <p>
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
+                    {categoryDescription}
                 </p>
             </div>
             <form id='container' onSubmit={handleSubmit}>
