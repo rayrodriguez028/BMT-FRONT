@@ -158,7 +158,7 @@ const Home = () => {
       </div>
       <div className={Styles.sectionContainer}>
         <h2>Descubre y agenda experiencias únicas en un solo lugar</h2>
-        <p>
+        <p style={{ fontSize: "1.25rem", lineHeight: "1.5rem" }}>
           En <b>BookMyTour</b> nos aseguramos que no compres un viaje, sino una
           <b> experiencia de vida</b>. Tenemos la convicción de que al viajar
           creamos las <b>conexiones</b> y los <b>recuerdos</b> más duraderos de
@@ -206,7 +206,7 @@ const Home = () => {
             />
           ))}
         </div>
-          
+
         {/* Paginación con flechas */}
         {totalPages > 1 && (
           <div className={Paginacion.pagination}>
@@ -215,12 +215,14 @@ const Home = () => {
               disabled={currentPage === 1}
               className={Paginacion.arrowButton}
             >
-              <i className="fa-solid fa-arrow-left"></i>
+              <i className="fa-arrow-left fa-solid"></i>
             </button>
             {Array.from({ length: totalPages }, (_, index) => (
               <button
                 key={index + 1}
-                className={currentPage === index + 1 ? Paginacion.activePage : ""}
+                className={
+                  currentPage === index + 1 ? Paginacion.activePage : ""
+                }
                 onClick={() => handlePageChange(index + 1)}
               >
                 {index + 1}
@@ -231,7 +233,7 @@ const Home = () => {
               disabled={currentPage === totalPages}
               className={Paginacion.arrowButton}
             >
-              <i className="fa-solid fa-arrow-right"></i>
+              <i className="fa-arrow-right fa-solid"></i>
             </button>
           </div>
         )}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import TextInput from "../Components/TextInput";
 import Styles from "../Styles/Form.module.css";
 import Button from "../Components/Button";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -33,8 +34,11 @@ const Login = () => {
       <div className={Styles.formContainer}>
         <section className={Styles.formHeader}>
           <h1 className={Styles.formTitle}>Iniciar sesión</h1>
-          <p>
-            No tienes una cuenta? <a href="">Registrate</a>
+          <p style={{ display: "flex", gap: "10px" }}>
+            No tienes una cuenta?{" "}
+            <Link to="/signup" style={{ color: "#fff", fontWeight: "bold" }}>
+              <span>Regístrate</span>
+            </Link>
           </p>
           {error && <p className={Styles.error}>{error}</p>}
         </section>

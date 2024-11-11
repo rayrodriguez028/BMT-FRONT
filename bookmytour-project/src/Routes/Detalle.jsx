@@ -34,7 +34,7 @@ const Detail = () => {
 
   return (
     <div className={Styles.mainContainer}>
-      <div style={{ marginTop: "120px" }}>
+      <div style={{ marginTop: "60px" }}>
         <button onClick={() => navigate(-1)} className={Styles.btnRegresar}>
           <img src="/images/Arrow left.svg" alt="" />
           Regresar
@@ -46,9 +46,7 @@ const Detail = () => {
           <img src={tour.imagenes[0]} alt={tour.imagenes[0]} />
           <div className={Styles.littleCard}>
             <h3>{tour.nombre}</h3>
-            <p>
-              {tour.card}
-            </p>
+            <p>{tour.card}</p>
             <button>¡Agenda ahora!</button>
           </div>
         </div>
