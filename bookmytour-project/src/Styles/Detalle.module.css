@@ -1,9 +1,10 @@
 .mainContainer {
-    height: 100vh;
+    height: 100%;
 }
 
 .container {
     display: flex;
+    gap: 3rem;
     justify-content: space-around;
     height: 100%;
 }
@@ -11,16 +12,16 @@
 .mainImage {
     position: relative;
     width: 65%;
-    height: 91%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
 .mainImage img{
-    width: 90%;
-    height: 76%;
-    border-radius: 20px 20px 0px 0px;
+    width: 100%;
+    min-height: 100dvh;
+    border-radius: 0 0 0px 0px;
+    object-fit: cover;
 }
 
 .littleCard {
@@ -71,6 +72,7 @@
 .tourContainer {
     width: 40%;
     height: 100%;
+    padding-right: 3rem;
 }
 
 .tourInfo {
@@ -175,6 +177,10 @@
     border-radius: 8px;
 }
 
+.characteristics {
+    padding: 0 15px;
+}
+
 @media (max-width: 1700px) {
     .mainImage {
         height: 93%;
@@ -184,6 +190,7 @@
 @media (max-width: 1024px) {
     .container {
         flex-direction: column;
+        gap: 0;
     }
 
     .mainImage, .mainImage img {
@@ -199,8 +206,7 @@
     .tourContainer {
         width: 100%;
         display: flex;
-        height: 400px;
-        margin-top: 70px;
+        flex-direction: column;
         margin-bottom: 70px;
     }
 
@@ -219,33 +225,48 @@
     .mainContainer {
         height: auto;
     }
+
+    .tourInfoContainer {
+        display: flex;
+    }
+
+    
+    .mainImage img{
+        width: 100%;
+        min-height: 50dvh;
+        object-fit: cover;
+    }
+
 }
 
 @media (max-width: 800px) {  
     #description {
         padding: 0px 5px;
     }
+
 }
 
 @media (max-width: 700px) {  
-    .tourContainer {
+    .tourInfoContainer {
         flex-direction: column;
         align-items: center;
-        height: 700px;
+        padding-bottom: 3rem;
     }
 
     .tourInfo, #description {
         width: 80%;
     }
 
-    .mainImage img {
-        height: 500px;
-    }
 
     .littleCard{
         bottom: 30px;
         right: 27%;
     }
+
+    .characteristics {
+        padding: 0 3rem;
+    }
+
 }
 
 @media (max-width: 600px) {  
@@ -253,6 +274,9 @@
         bottom: 30px;
         right: 17%;
     }
+
+
+
 }
 
 
@@ -266,4 +290,6 @@
     .mainImage {
         height: 68%;
     }
+
+
 }

@@ -2,13 +2,14 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: #F9F9FB;
     position: relative;
-    padding: 10px 0px;
+    padding: 10px 0;
 }
 
 .sectionFooter1 {
+  padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,6 +64,7 @@
   
 
 .sectionFooter2{
+  padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,6 +88,7 @@
 }
 
 .contenedorRedes{
+  padding: 0 40px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -124,6 +127,7 @@
 @media (max-width: 870px) {  
   .sectionFooter2 {
     flex-direction: row;
+    gap: 0;
     position: absolute;
     top: 10px;
   }
@@ -135,16 +139,20 @@
 
 @media (max-width: 430px) {  
   .sectionFooter2 p, .sectionFooter3, .mainTitle {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    justify-content: space-between;
   }
 
   .slogan, .sloganCopyright {
     font-size: 0.425rem;
   }
 
-  .buttonRedSocial > img {
-    width: auto;
-    height: auto;
+  .contenedorRedes {
+    padding: 0;
+  }
+
+  .buttonRedSocial {
+    width: 24px;
   }
 
 }

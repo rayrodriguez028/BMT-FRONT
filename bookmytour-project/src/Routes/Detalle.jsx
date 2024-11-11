@@ -3,6 +3,7 @@ import Styles from "../Styles/Detalle.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContextGlobalStates } from "../Components/utils/global.context";
 import Slider from "react-slick";
+import Characteristics from "../Components/Characteristics";
 
 const Detail = () => {
   const { id } = useParams();
@@ -34,13 +35,6 @@ const Detail = () => {
 
   return (
     <div className={Styles.mainContainer}>
-      <div style={{ marginTop: "60px" }}>
-        <button onClick={() => navigate(-1)} className={Styles.btnRegresar}>
-          <img src="/images/Arrow left.svg" alt="" />
-          Regresar
-        </button>
-      </div>
-
       <div className={Styles.container}>
         <div className={Styles.mainImage}>
           <img src={tour.imagenes[0]} alt={tour.imagenes[0]} />
@@ -51,47 +45,56 @@ const Detail = () => {
           </div>
         </div>
         <div className={Styles.tourContainer}>
-          <div className={Styles.tourInfo}>
-            <Slider {...settings}>
-              {tour.imagenes.map(
-                (image, index) =>
-                  index != 0 && ( //Omitimos la primera imagen
-                    <div key={index} className={Styles.imageWrapper}>
-                      <img
-                        className={Styles.carouselImage}
-                        src={image}
-                        alt={`Imagen del tour ${tour.nombre}`}
-                        onClick={() => setZoomImage(image)}
-                      />
-                    </div>
-                  )
-              )}
-            </Slider>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginTop: "30px",
-              }}
-            >
-              <h4>{tour.nombre}</h4>
-              <h5>$ {tour.precio}</h5>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginTop: "10px",
-                marginBottom: "10px",
-              }}
-            >
-              <span style={{ textAlign: "left" }}>{tour.ubicacion}</span>
-              <span style={{ textAlign: "center" }}>{tour.duracion}</span>
-            </div>
+          <div style={{ padding: "15px 0 0 0" }}>
+            <button onClick={() => navigate(-1)} className={Styles.btnRegresar}>
+              <img src="/images/Arrow left.svg" alt="" />
+              Regresar
+            </button>
           </div>
-          <div id={Styles.description}>
-            <p>{tour.descripcion}</p>
-          </div>
+          <section className={Styles.tourInfoContainer}>
+            <div className={Styles.tourInfo}>
+              <Slider {...settings}>
+                {tour.imagenes.map(
+                  (image, index) =>
+                    index != 0 && ( //Omitimos la primera imagen
+                      <div key={index} className={Styles.imageWrapper}>
+                        <img
+                          className={Styles.carouselImage}
+                          src={image}
+                          alt={`Imagen del tour ${tour.nombre}`}
+                          onClick={() => setZoomImage(image)}
+                        />
+                      </div>
+                    )
+                )}
+              </Slider>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginTop: "30px",
+                }}
+              >
+                <h4>{tour.nombre}</h4>
+                <h5 style={{ textAlign: "end" }}>$ {tour.precio}</h5>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginTop: "10px",
+                  marginBottom: "10px",
+                }}
+              >
+                <span style={{ textAlign: "left" }}>{tour.ubicacion}</span>
+                <span style={{ textAlign: "end" }}>{tour.duracion}</span>
+              </div>
+            </div>
+            <div id={Styles.description}>
+              <p>{tour.descripcion}</p>
+            </div>
+          </section>
+          <Characteristics />
         </div>
 
         {zoomImage && (
