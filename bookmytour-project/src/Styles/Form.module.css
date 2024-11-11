@@ -1,0 +1,120 @@
+.mainFormContainer {
+    display: flex;
+    width: 100%;
+    height: 90dvh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #027373;
+  }
+
+  .formHeader {
+    margin: 0 10%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: #ffffff;
+  }
+
+  .formTitle {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+  }
+  
+  .loginImage {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .formContainer {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      justify-self: center;
+    }
+    
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .formField {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+.formLabel {
+    font-size: 14px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.formInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #ffffff84;
+}
+
+.formInput::placeholder {
+    color: #027373 ;
+}
+
+.formInput:focus {
+    border-color: #027373;
+}
+
+.error {
+    color: #FFC107;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.forgotPassword {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+@media (max-width: 920px) {
+    .mainFormContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 110vh;
+      }
+      
+      .formContainer {
+        padding: 3rem;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 450px) {
+
+      .mainFormContainer {
+        height: 75vh;
+      }
+
+      .loginImage {
+        display: none;
+      }
+    }
