@@ -158,7 +158,13 @@ const Home = () => {
       </div>
       <div className={Styles.sectionContainer}>
         <h2>Descubre y agenda experiencias únicas en un solo lugar</h2>
-        <p style={{ fontSize: "1.25rem", lineHeight: "1.5rem" }}>
+        <p
+          style={{
+            fontSize: "1.25rem",
+            lineHeight: "1.5rem",
+            color: "#A1A7B0",
+          }}
+        >
           En <b>BookMyTour</b> nos aseguramos que no compres un viaje, sino una
           <b> experiencia de vida</b>. Tenemos la convicción de que al viajar
           creamos las <b>conexiones</b> y los <b>recuerdos</b> más duraderos de
