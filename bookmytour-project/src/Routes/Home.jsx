@@ -51,29 +51,6 @@ const Home = () => {
     ],
   };
 
-  const categories = [
-    {
-      nombre: "Vibra Urbana",
-      img: "/images/AmazonasColombiano1.jpg",
-    },
-    {
-      nombre: "Paraísos del Caribe",
-      img: "/images/AmazonasColombiano1.jpg",
-    },
-    {
-      nombre: "Aventura",
-      img: "/images/AmazonasColombiano1.jpg",
-    },
-    {
-      nombre: "Naturaleza Viva",
-      img: "/images/AmazonasColombiano1.jpg",
-    },
-    {
-      nombre: "Aromas y Sabores",
-      img: "/images/AmazonasColombiano1.jpg",
-    },
-  ];
-
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -177,7 +154,7 @@ const Home = () => {
         <h2 className={Styles.subtitles}>Categorías</h2>
         <div className="slider-container">
           <Slider {...settings}>
-            {categories.map((item) => (
+            {state.categories.map((item) => (
               <Link
                 key={item.nombre}
                 to={`${window.location.origin}/Categorias/${item.nombre}`}
@@ -185,7 +162,7 @@ const Home = () => {
                 <div className={Styles.carouselItem}>
                   <div className={Styles.imageContainer}>
                     <img
-                      src={item.img}
+                      src={item.imagen}
                       alt={item.nombre}
                       className={Styles.carouselImage}
                     />
