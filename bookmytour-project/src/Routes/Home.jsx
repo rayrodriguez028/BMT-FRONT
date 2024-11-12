@@ -17,10 +17,13 @@ const Home = () => {
   // Configuración del carrusel
   var settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
+    autoplay: true,
+    waitForAnimate: false,
+    autoplaySpeed: 2000,
     initialSlide: 0,
     cssEase: "linear",
     responsive: [

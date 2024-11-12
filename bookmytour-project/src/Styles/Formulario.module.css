@@ -79,7 +79,7 @@
 }
 
 .input {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: #ffffff84;
     height: 32px;
     border-radius: 4px;
     border: 1px solid #C1C9D2;
@@ -87,6 +87,16 @@
     font-size: 0.875rem;
     font-family: "Manrope";
     padding-left: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input::placeholder {
+    color: #027373 ;
+}
+
+.input:focus {
+    border-color: #027373;
 }
 
 .button {
@@ -108,7 +118,7 @@
 @media (max-width: 1100px) {
     .container {
         flex-direction: column;
-        height: 100vh;
+        height: auto;
     }
 
     .img, .formHeader {
@@ -157,7 +167,7 @@
 
 }
 
-@media (min-height: 1000px) and (min-width: 1025px) {  
+@media (min-height: 1000px) and (min-width: 1024px) {  
     .container {
         height: 100vh;
     }
