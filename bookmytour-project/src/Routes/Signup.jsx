@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Styles from "../Styles/Formulario.module.css";
 import { Link } from "react-router-dom";
-
+import axios from 'axios'
 const Formulario = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -27,7 +27,7 @@ const Formulario = () => {
   });
 
   const [errores, setErrores] = useState({});
-
+ const [mensaje, setMensaje] = useState("");
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -80,11 +80,35 @@ const Formulario = () => {
     setErrores(nuevosErrores);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (Object.keys(errores).length === 0 && validarFormulario()) {
-      console.log("Datos de registro:", formData);
-      // Aquí puedes agregar lógica para enviar los datos a un servidor
+      try {
+        const response = await axios ('http://34.239.141.92:8080/api/auth/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.nombre,
+            lastName: formData.apellido,
+            email: formData.correo,
+            password: formData.contrasena,
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setMensaje('Registro exitoso: ' + JSON.stringify(data));
+          setFormData({ nombre: '', apellido: '', correo: '', contrasena: '' });
+          setErrores({});
+        } else {
+          const errorData = await response.json();
+          setMensaje('Error: ' + (errorData.message || 'Error en el registro'));
+        }
+      } catch (error) {
+        setMensaje('Error de red: ' + error.message);
+      }
     }
   };
 
