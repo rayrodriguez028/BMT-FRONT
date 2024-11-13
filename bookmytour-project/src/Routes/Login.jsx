@@ -4,13 +4,15 @@ import Styles from "../Styles/Form.module.css";
 import Button from "../Components/Button";
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { ToastContainer, toast } from "react-toastify";
+import Loader from "../Components/Loader";
 
 const Login = () => {
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { login, loading, loginError } = useAuth();
+  const { login, loading } = useAuth();
 
   const validateEmail = (email) => {
     const emailRegexp =
@@ -25,13 +27,18 @@ const Login = () => {
       setError("");
 
       try {
-        const response = await login({
+        await login({
           email: email,
           password: password,
         });
-        console.log(response);
+        toast.success("Sesión iniciada correctamente", {
+          position: "top-center",
+        });
       } catch (err) {
         console.log(err);
+        toast.error("Error al iniciar sesión", {
+          position: "top-center",
+        });
       }
     } else {
       setError(
@@ -42,8 +49,10 @@ const Login = () => {
 
   return (
     <div className={Styles.mainFormContainer}>
+      {loading && <Loader />}
       <img src="/images/login.png" alt="Login" className={Styles.loginImage} />
       <div className={Styles.formContainer}>
+        <ToastContainer />
         <section className={Styles.formHeader}>
           <h1 className={Styles.formTitle}>Iniciar sesión</h1>
           <p style={{ display: "flex", gap: "10px" }}>
