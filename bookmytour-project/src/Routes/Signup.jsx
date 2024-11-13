@@ -59,11 +59,10 @@ const Formulario = () => {
     if (name === "apellido") {
       if (!value) {
         nuevosErrores.apellido = "El apellido es obligatorio.";
-      } 
-       else if((!/^[a-zA-Z]+$/.test(value))){
-        nuevosErrores.apellido = " El apellido solo debe contener letras"
+      } else if((!/^[a-zA-Z]+$/.test(value))){
+        nuevosErrores.nombre = " El nombre solo debe contener letras"
       }
-      } else {
+      else {
         delete nuevosErrores.apellido;
       }
     }
