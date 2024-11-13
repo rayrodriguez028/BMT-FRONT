@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import Styles from "../Styles/Formulario.module.css";
+import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+import Loader from "../Components/Loader";
 
 const Formulario = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const { register, loading } = useAuth();
 
   useEffect(() => {
     const handleResize = () => {
@@ -80,11 +85,27 @@ const Formulario = () => {
     setErrores(nuevosErrores);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (Object.keys(errores).length === 0 && validarFormulario()) {
       console.log("Datos de registro:", formData);
-      // Aquí puedes agregar lógica para enviar los datos a un servidor
+      setErrores("");
+      try {
+        await register({
+          nombre: formData.nombre,
+          apellido: formData.apellido,
+          correo: formData.correo,
+          contrasena: formData.contrasena
+        });
+        toast.success("Cuenta creada correctamente", {
+          position: "top-center",
+        });
+      } catch (err) {
+        console.log(err);
+        toast.error("Error al crear la cuenta", {
+          position: "top-center",
+        });
+      }
     }
   };
 
@@ -118,6 +139,8 @@ const Formulario = () => {
   return (
     <>
       <div className={Styles.container}>
+        {loading && <Loader />}
+        <ToastContainer />
         {windowWidth < 1100 ? (
           <div className={Styles.formHeader}>
             <div className={Styles.titulos}>
