@@ -3,11 +3,14 @@ import TextInput from "../Components/TextInput";
 import Styles from "../Styles/Form.module.css";
 import Button from "../Components/Button";
 import { Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const Login = () => {
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { login, loading, loginError } = useAuth();
 
   const validateEmail = (email) => {
     const emailRegexp =
@@ -15,12 +18,21 @@ const Login = () => {
     return emailRegexp.test(String(email).toLowerCase());
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (validateEmail(email) && password) {
-      console.log("Login!");
       setError("");
+
+      try {
+        const response = await login({
+          email: email,
+          password: password,
+        });
+        console.log(response);
+      } catch (err) {
+        console.log(err);
+      }
     } else {
       setError(
         "Los datos ingresados son incorrectos, asegurese de estar registrado y escribir la contraseña correcta"
