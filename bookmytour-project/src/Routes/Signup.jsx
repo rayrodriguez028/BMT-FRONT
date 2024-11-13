@@ -48,7 +48,7 @@ const Formulario = () => {
     if (name === "nombre") {
       if (!value) {
         nuevosErrores.nombre = "El nombre es obligatorio.";
-      } else if((!/^[a-zA-Z]+$/.test(value))){
+      } else if((!/^[a-zA-Z\u00C0-\u017F\s]+$/.test(value))){
         nuevosErrores.nombre = " El nombre solo debe contener letras"
       }
        else {
@@ -59,7 +59,7 @@ const Formulario = () => {
     if (name === "apellido") {
       if (!value) {
         nuevosErrores.apellido = "El apellido es obligatorio.";
-      } else if((!/^[a-zA-Z]+$/.test(value))){
+      } else if((!/^[a-zA-Z\u00C0-\u017F\s]+$/.test(value))){
         nuevosErrores.apellido = " El apellido solo debe contener letras"
       }
       else {
@@ -111,15 +111,15 @@ const Formulario = () => {
 
         if (response.ok) {
           const data = await response.json();
-          setMensaje('Registro exitoso: ' + JSON.stringify(data));
+          toast.success('Registro exitoso: ' + JSON.stringify(data));
           setFormData({ nombre: '', apellido: '', correo: '', contrasena: '' });
           setErrores({});
         } else {
           const errorData = await response.json();
-          setMensaje('Error: ' + (errorData.message || 'Error en el registro'));
+          toast.error('Error: ' + (errorData.message || 'Error en el registro'));
         }
       } catch (error) {
-        setMensaje('Error de red: ' + error.message);
+        toast.error('Error de red: ' + error.message);
       }
      
     }
