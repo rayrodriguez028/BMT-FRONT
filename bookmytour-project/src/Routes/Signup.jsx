@@ -60,7 +60,7 @@ const Formulario = () => {
       if (!value) {
         nuevosErrores.apellido = "El apellido es obligatorio.";
       } else if((!/^[a-zA-Z]+$/.test(value))){
-        nuevosErrores.nombre = " El nombre solo debe contener letras"
+        nuevosErrores.apellido = " El apellido solo debe contener letras"
       }
       else {
         delete nuevosErrores.apellido;
@@ -93,6 +93,7 @@ const Formulario = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (Object.keys(errores).length === 0 && validarFormulario()) {
       try {
         const response = await register ({
@@ -120,7 +121,9 @@ const Formulario = () => {
       } catch (error) {
         setMensaje('Error de red: ' + error.message);
       }
+     
     }
+   
   };
 
   const validarFormulario = () => {
