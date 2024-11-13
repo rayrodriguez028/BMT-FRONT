@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 import Styles from "../Styles/Formulario.module.css";
+import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import Loader from "../Components/Loader";
+
 const Formulario = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const { register, loading, registerError } = useAuth();
+
+  const { register, loading } = useAuth();
+
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -142,6 +147,8 @@ const Formulario = () => {
   return (
     <>
       <div className={Styles.container}>
+        {loading && <Loader />}
+        <ToastContainer />
         {windowWidth < 1100 ? (
           <div className={Styles.formHeader}>
             <div className={Styles.titulos}>
