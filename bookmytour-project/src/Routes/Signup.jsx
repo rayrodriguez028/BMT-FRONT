@@ -48,7 +48,10 @@ const Formulario = () => {
     if (name === "nombre") {
       if (!value) {
         nuevosErrores.nombre = "El nombre es obligatorio.";
-      } else {
+      } else if((!/^[a-zA-Z]+$/.test(value))){
+        nuevosErrores.nombre = " El nombre solo debe contener letras"
+      }
+       else {
         delete nuevosErrores.nombre;
       }
     }
@@ -56,6 +59,10 @@ const Formulario = () => {
     if (name === "apellido") {
       if (!value) {
         nuevosErrores.apellido = "El apellido es obligatorio.";
+      } 
+       else if((!/^[a-zA-Z]+$/.test(value))){
+        nuevosErrores.apellido = " El apellido solo debe contener letras"
+      }
       } else {
         delete nuevosErrores.apellido;
       }
