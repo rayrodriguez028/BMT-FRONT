@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Styles from "../Styles/Formulario.module.css";
 import { Link } from "react-router-dom";
-import axios from 'axios'
+import { useAuth } from "../hooks/useAuth";
 const Formulario = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+  const { register, loading, registerError } = useAuth();
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -27,7 +27,7 @@ const Formulario = () => {
   });
 
   const [errores, setErrores] = useState({});
- const [mensaje, setMensaje] = useState("");
+  const[mensaje, setMensaje] = useState("")
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -84,7 +84,7 @@ const Formulario = () => {
     e.preventDefault();
     if (Object.keys(errores).length === 0 && validarFormulario()) {
       try {
-        const response = await axios ('http://34.239.141.92:8080/api/auth/register', {
+        const response = await register ({
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
