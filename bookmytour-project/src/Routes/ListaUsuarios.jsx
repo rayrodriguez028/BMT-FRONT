@@ -1,45 +1,56 @@
-import { useEffect, useState } from "react"
-import {userService} from '../services/api/userService';
+import { useEffect, useState } from "react";
+import { userService } from '../services/api/userService';
 
-const ListaUsuarios = ()=>{
+const ListaUsuarios = () => {
     const [users, setUsers] = useState([]);
- 
-    useEffect(()=>{
-        userService.getAllUsers ()
-        .then((response)=>setUsers(response.data))
-        .catch((error)=> console.error('Error con los usuarios', error));
 
-    },[])
+    useEffect(() => {
+        userService.getAllUsers()
+        .then((response) => {
+            console.log('Respuesta de la API:', response.data); 
+            setUsers(response.data);
+        })
+        .catch((error) => console.error('Error con los usuarios', error));
+    }, []);
 
-const toogleAdminStatus= async (userId, isAdmin)=>{
-    try{
-        const updtadeDataUser = {isAdmin:!isAdmin};
-        const response = await userService.updtadeDataUser(userId, updtadeDataUser);
-        
-        if (response.status !=200) throw new Error('Error al actualizar los permisos');
-        setUsers((prevUsers)=>
-            prevUsers.map((user)=>
-            user.id ===userId? { ...user, isAdmin: !isAdmin} : user));
-    } catch( error){
-        console.error ('Error con los permisos', error);
+    const toogleAdminStatus = async (userId, rolName) => {
+        try {
+            console.log('User ID:', userId);
+            const updatedRolName = rolName === 'ADMIN' ? 'USER' : 'ADMIN';  // Invertir el rol
+
+            const updateDataUser = { rolName: updatedRolName };
+            console.log('Datos a enviar:', updateDataUser);
+            const response = await userService.updateUser(userId, updateDataUser); 
+
+            if (response.status !== 200) throw new Error('Error al actualizar los permisos');
+
+            // Actualiza el estado con el nuevo rol
+            setUsers((prevUsers) =>
+                prevUsers.map((user) =>
+                    user.userId === userId ? { ...user, rolName: updatedRolName } : user
+                )
+            );
+        } catch (error) {
+            console.error('Error con los permisos', error);
+        }
     };
+
     return (
         <div>
-            <h2>Lsitado de usuarios</h2>
+            <h2>Listado de usuarios</h2>
             <ul>
-                {users.map((user)=>(
-                    <li key={user.id}>
-                        <span>{user.name} - {user.isAdmin? 'Administrador': 'Usuario'}</span>
-                        <button onClick={()=> toogleAdminStatus(user.id, user.isAdmin)}> 
-                            {user.isAdmin? 'Revocar permiso de Administrador': 'Conceder permiso de administrador'}
+                {users.map((user) => (
+                    <li key={user.userId}> {/* Usamos user.userId como clave */}
+                       <span>{user.firstName} {user.lastName} - {user.rolName === 'ADMIN' ? 'Administrador' : 'Usuario'}</span>
+
+                        <button onClick={() => toogleAdminStatus(user.userId, user.rolName)}>
+                            {user.rolName === 'ADMIN'? 'Revocar permiso de Administrador' : 'Conceder permiso de administrador'}
                         </button>
                     </li>
                 ))}
             </ul>
-
         </div>
-    )
-}
+    );
+};
 
-}
 export default ListaUsuarios;

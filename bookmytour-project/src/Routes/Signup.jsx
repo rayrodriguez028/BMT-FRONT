@@ -63,16 +63,9 @@ const Formulario = () => {
     if (name === "nombre") {
       if (!value) {
         nuevosErrores.nombre = "El nombre es obligatorio.";
-<<<<<<< HEAD
-      } else if((!/^[a-zA-Z\u00C0-\u017F\s]+$/.test(value))){
-        nuevosErrores.nombre = " El nombre solo debe contener letras"
-      }
-       else {
-=======
       } else if (!/^[a-zA-Z]+$/.test(value)) {
         nuevosErrores.nombre = " El nombre solo debe contener letras";
       } else {
->>>>>>> 176cfc69664904fc886c291e4b20182a4266fd6b
         delete nuevosErrores.nombre;
       }
     }
@@ -80,16 +73,9 @@ const Formulario = () => {
     if (name === "apellido") {
       if (!value) {
         nuevosErrores.apellido = "El apellido es obligatorio.";
-<<<<<<< HEAD
-      } else if((!/^[a-zA-Z\u00C0-\u017F\s]+$/.test(value))){
-        nuevosErrores.apellido = " El apellido solo debe contener letras"
-      }
-      else {
-=======
       } else if (!/^[a-zA-Z]+$/.test(value)) {
         nuevosErrores.apellido = " El apellido solo debe contener letras";
       } else {
->>>>>>> 176cfc69664904fc886c291e4b20182a4266fd6b
         delete nuevosErrores.apellido;
       }
     }
@@ -130,21 +116,7 @@ const Formulario = () => {
           password: formData.contrasena,
         });
 
-<<<<<<< HEAD
-        if (response.ok) {
-          const data = await response.json();
-          toast.success('Registro exitoso: ' + JSON.stringify(data));
-          setFormData({ nombre: '', apellido: '', correo: '', contrasena: '' });
-          setErrores({});
-        } else {
-          const errorData = await response.json();
-          toast.error('Error: ' + (errorData.message || 'Error en el registro'));
-        }
-      } catch (error) {
-        toast.error('Error de red: ' + error.message);
-=======
         if (response.token) {
-          dispatch({ type: "SET_USER", payload: response });
           toast.success("Cuenta creada exitosamente!", {
             position: "top-center",
           });
@@ -159,7 +131,6 @@ const Formulario = () => {
           console.log(err);
           toast.error("Error al crear la cuenta", { position: "top-center" });
         }
->>>>>>> 176cfc69664904fc886c291e4b20182a4266fd6b
       }
     }
   };
