@@ -32,7 +32,7 @@ const Formulario = () => {
   });
 
   const [errores, setErrores] = useState({});
-  const[mensaje, setMensaje] = useState("")
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -48,10 +48,9 @@ const Formulario = () => {
     if (name === "nombre") {
       if (!value) {
         nuevosErrores.nombre = "El nombre es obligatorio.";
-      } else if((!/^[a-zA-Z]+$/.test(value))){
-        nuevosErrores.nombre = " El nombre solo debe contener letras"
-      }
-       else {
+      } else if (!/^[a-zA-Z]+$/.test(value)) {
+        nuevosErrores.nombre = " El nombre solo debe contener letras";
+      } else {
         delete nuevosErrores.nombre;
       }
     }
@@ -59,10 +58,9 @@ const Formulario = () => {
     if (name === "apellido") {
       if (!value) {
         nuevosErrores.apellido = "El apellido es obligatorio.";
-      } else if((!/^[a-zA-Z]+$/.test(value))){
-        nuevosErrores.apellido = " El apellido solo debe contener letras"
-      }
-      else {
+      } else if (!/^[a-zA-Z]+$/.test(value)) {
+        nuevosErrores.apellido = " El apellido solo debe contener letras";
+      } else {
         delete nuevosErrores.apellido;
       }
     }
@@ -93,37 +91,25 @@ const Formulario = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (Object.keys(errores).length === 0 && validarFormulario()) {
       try {
-        const response = await register ({
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: formData.nombre,
-            lastName: formData.apellido,
-            email: formData.correo,
-            password: formData.contrasena,
-          }),
+        await register({
+          nombre: formData.nombre,
+          apellido: formData.apellido,
+          correo: formData.correo,
+          contrasena: formData.contrasena,
         });
-
-        if (response.ok) {
-          const data = await response.json();
-          setMensaje('Registro exitoso: ' + JSON.stringify(data));
-          setFormData({ nombre: '', apellido: '', correo: '', contrasena: '' });
-          setErrores({});
-        } else {
-          const errorData = await response.json();
-          setMensaje('Error: ' + (errorData.message || 'Error en el registro'));
-        }
-      } catch (error) {
-        setMensaje('Error de red: ' + error.message);
+        toast.success("Cuenta creada correctamente", {
+          position: "top-center",
+        });
+      } catch (err) {
+        console.log(err);
+        toast.error("Error al crear la cuenta", {
+          position: "top-center",
+        });
       }
-     
     }
-   
   };
 
   const validarFormulario = () => {
