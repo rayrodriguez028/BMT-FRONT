@@ -1,21 +1,48 @@
 import Styles from "../Styles/Form.module.css";
+import { useState } from "react";
 
-const TextInput = ({ label, type, placeholder, error, value, onChange, name }) => {
+const TextInput = ({
+  label,
+  type,
+  placeholder,
+  error,
+  value,
+  onChange,
+  name,
+}) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   return (
     <div className={Styles.formField}>
-        <label className={Styles.formLabel} htmlFor={label}>{label}</label>
-      <input
-        className={Styles.formInput}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        name={name} 
-      />
+      <label className={Styles.formLabel} htmlFor={label}>
+        {label}
+      </label>
+      <div className={Styles.inputContainer}>
+        <input
+          className={Styles.formInput}
+          type={showPassword && type === "password" ? "text" : type}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          name={name}
+        />
+        {type === "password" && (
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className={Styles.togglePasswordButton}
+          >
+            {showPassword ? "🙈" : "👁️"}
+          </button>
+        )}
+      </div>
       {error && <span className={Styles.error}>{error}</span>}
     </div>
-  )
-}
+  );
+};
 
-export default TextInput
+export default TextInput;
