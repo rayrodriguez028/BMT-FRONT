@@ -1,14 +1,29 @@
 import { useEffect, useState } from "react";
 import Styles from "../Styles/Formulario.module.css";
 import { ToastContainer, toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import Loader from "../Components/Loader";
+import { useContextGlobalStates } from "../Components/utils/global.context";
 
 const Formulario = () => {
+  const { dispatch } = useContextGlobalStates();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
   const { register, loading } = useAuth();
+  const navigate = useNavigate();
+
+  // Verifica si ya hay un usuario en el localStorage
+  useEffect(() => {
+    const user = localStorage.getItem("user");  
+    if (user) {
+      dispatch({
+        type: "SET_USER",
+        payload: JSON.parse(user), 
+      });
+      navigate("/"); 
+    }
+  }, [dispatch, navigate]);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,7 +47,7 @@ const Formulario = () => {
   });
 
   const [errores, setErrores] = useState({});
-  const[mensaje, setMensaje] = useState("")
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -48,10 +63,16 @@ const Formulario = () => {
     if (name === "nombre") {
       if (!value) {
         nuevosErrores.nombre = "El nombre es obligatorio.";
+<<<<<<< HEAD
       } else if((!/^[a-zA-Z\u00C0-\u017F\s]+$/.test(value))){
         nuevosErrores.nombre = " El nombre solo debe contener letras"
       }
        else {
+=======
+      } else if (!/^[a-zA-Z]+$/.test(value)) {
+        nuevosErrores.nombre = " El nombre solo debe contener letras";
+      } else {
+>>>>>>> 176cfc69664904fc886c291e4b20182a4266fd6b
         delete nuevosErrores.nombre;
       }
     }
@@ -59,10 +80,16 @@ const Formulario = () => {
     if (name === "apellido") {
       if (!value) {
         nuevosErrores.apellido = "El apellido es obligatorio.";
+<<<<<<< HEAD
       } else if((!/^[a-zA-Z\u00C0-\u017F\s]+$/.test(value))){
         nuevosErrores.apellido = " El apellido solo debe contener letras"
       }
       else {
+=======
+      } else if (!/^[a-zA-Z]+$/.test(value)) {
+        nuevosErrores.apellido = " El apellido solo debe contener letras";
+      } else {
+>>>>>>> 176cfc69664904fc886c291e4b20182a4266fd6b
         delete nuevosErrores.apellido;
       }
     }
@@ -93,22 +120,17 @@ const Formulario = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (Object.keys(errores).length === 0 && validarFormulario()) {
       try {
-        const response = await register ({
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: formData.nombre,
-            lastName: formData.apellido,
-            email: formData.correo,
-            password: formData.contrasena,
-          }),
+        const response = await register({
+          firstName: formData.nombre,
+          lastName: formData.apellido,
+          email: formData.correo,
+          password: formData.contrasena,
         });
 
+<<<<<<< HEAD
         if (response.ok) {
           const data = await response.json();
           toast.success('Registro exitoso: ' + JSON.stringify(data));
@@ -120,10 +142,25 @@ const Formulario = () => {
         }
       } catch (error) {
         toast.error('Error de red: ' + error.message);
+=======
+        if (response.token) {
+          toast.success("Cuenta creada exitosamente!", {
+            position: "top-center",
+          });
+          setTimeout(() => {
+            navigate("/"); // Redirigir a la página principal después de crear la cuenta
+          }, 1000);
+        }
+      } catch (err) {
+        if (err.response && err.response.data && err.response.data.error) {
+          toast.error(err.response.data.error, { position: "top-center" });
+        } else {
+          console.log(err);
+          toast.error("Error al crear la cuenta", { position: "top-center" });
+        }
+>>>>>>> 176cfc69664904fc886c291e4b20182a4266fd6b
       }
-     
     }
-   
   };
 
   const validarFormulario = () => {

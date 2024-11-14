@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Styles from "../Styles/Detalle.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContextGlobalStates } from "../Components/utils/global.context";
+import Swal from 'sweetalert2'
 import Slider from "react-slick";
 import Characteristics from "../Components/Characteristics";
 
@@ -33,6 +34,37 @@ const Detail = () => {
     cssEase: "linear",
   };
 
+  const handleSchedule = () => {
+    // Verifica si el usuario tiene el token
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      // Si el token existe, permite la acción de agendar
+      Swal.fire({
+        title: '¡Genial!',
+        text: 'Tour agendado exitosamente',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      })
+    } else {
+      // Si el token no existe, muestra una alerta y redirige al login
+      Swal.fire({
+        title: "¡Oups!",
+        text: "Para agendar un tour, necesitas estar logueado.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Iniciar sesión",
+        cancelButtonText: "Cancelar"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        }
+      });
+    }
+  };
+
   return (
     <div className={Styles.mainContainer}>
       <div className={Styles.container}>
@@ -41,7 +73,7 @@ const Detail = () => {
           <div className={Styles.littleCard}>
             <h3>{tour.nombre}</h3>
             <p>{tour.card}</p>
-            <button>¡Agenda ahora!</button>
+            <button onClick={handleSchedule}>¡Agenda ahora!</button>
           </div>
         </div>
         <div className={Styles.tourContainer}>

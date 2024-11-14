@@ -181,6 +181,10 @@
     padding: 0 15px;
 }
 
+.characteristics h4{
+    color: #464646;
+}
+
 @media (max-width: 1700px) {
     .mainImage {
         height: 93%;
