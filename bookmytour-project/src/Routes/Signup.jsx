@@ -144,6 +144,7 @@ const Formulario = () => {
         toast.error('Error de red: ' + error.message);
 =======
         if (response.token) {
+          dispatch({ type: "SET_USER", payload: response });
           toast.success("Cuenta creada exitosamente!", {
             position: "top-center",
           });

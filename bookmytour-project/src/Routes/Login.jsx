@@ -71,6 +71,7 @@ const Login = () => {
           password: password,
         });
         if (response.token) {
+          dispatch({ type: "SET_USER", payload: response });
           toast.success("Sesión iniciada exitosamente!", {
             position: "top-center",
           });
