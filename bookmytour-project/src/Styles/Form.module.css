@@ -60,6 +60,7 @@
 }
 
 .formInput {
+  width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -86,6 +87,22 @@
 .forgotPassword {
     font-size: 14px;
     color: #ffffff;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.togglePasswordButton {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #888;
 }
 
 @media (max-width: 920px) {
