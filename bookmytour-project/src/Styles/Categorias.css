@@ -1,13 +1,17 @@
 #mainImage {
     width: 100%;
     height: auto;
+    object-fit: cover;
+    max-height: 650px;
+    object-position: center center; 
+    border-radius: 0px 0px 10px 10px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
 }
 
 .mainTitle {
     color: #04ADBF;
     font-weight: bolder;
     font-size: 2.5;
-    line-height: 72px;
     text-align: end;
     padding: 0px 100px;
 }

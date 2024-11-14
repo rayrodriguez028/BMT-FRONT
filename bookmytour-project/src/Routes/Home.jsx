@@ -51,6 +51,14 @@ const Home = () => {
           slidesToScroll: 1,
         },
       },
+      {
+        breakpoint: 434,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false
+        },
+      },
     ],
   };
 
