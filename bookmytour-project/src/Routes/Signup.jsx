@@ -125,10 +125,12 @@ const Formulario = () => {
           }, 1000);
         }
       } catch (err) {
-        console.log(err);
-        toast.error("Error al crear la cuenta", {
-          position: "top-center",
-        });
+        if (err.response && err.response.data && err.response.data.error) {
+          toast.error(err.response.data.error, { position: "top-center" });
+        } else {
+          console.log(err);
+          toast.error("Error al crear la cuenta", { position: "top-center" });
+        }
       }
     }
   };

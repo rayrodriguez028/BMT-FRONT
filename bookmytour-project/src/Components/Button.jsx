@@ -1,6 +1,6 @@
 import Styles from "../Styles/Button.module.css";
 
-const Button = ({ label, onClick, variant }) => {
+const Button = ({ label, onClick, variant, type }) => {
   return (
     <button
       onClick={onClick}
@@ -9,6 +9,7 @@ const Button = ({ label, onClick, variant }) => {
           ? Styles.button + " " + Styles.buttonPrimary
           : Styles.button + " " + Styles.buttonSecondary
       }
+      type={type}
     >
       {label}
     </button>

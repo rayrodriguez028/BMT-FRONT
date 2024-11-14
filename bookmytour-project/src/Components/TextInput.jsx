@@ -1,14 +1,6 @@
-import { useState } from 'react'
 import Styles from "../Styles/Form.module.css";
 
-const TextInput = ({ label, type, placeholder, error, onChange }) => {
-
-    const [value, setValue] = useState('');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-    onChange(event.target.value);
-  };
+const TextInput = ({ label, type, placeholder, error, value, onChange, name }) => {
 
   return (
     <div className={Styles.formField}>
@@ -18,7 +10,8 @@ const TextInput = ({ label, type, placeholder, error, onChange }) => {
         type={type}
         placeholder={placeholder}
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
+        name={name} 
       />
       {error && <span className={Styles.error}>{error}</span>}
     </div>
