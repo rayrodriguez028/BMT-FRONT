@@ -1,18 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TextInput from "../Components/TextInput";
 import Styles from "../Styles/Form.module.css";
 import Button from "../Components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { ToastContainer, toast } from "react-toastify";
 import Loader from "../Components/Loader";
+import { useContextGlobalStates } from "../Components/utils/global.context";
 
 const Login = () => {
+  const { dispatch } = useContextGlobalStates();
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const { login, loading } = useAuth();
+
+  // Verifica si ya hay un usuario en el localStorage
+  useEffect(() => {
+    const user = localStorage.getItem("user");  
+    if (user) {
+      dispatch({
+        type: "SET_USER",
+        payload: JSON.parse(user), 
+      });
+      navigate("/"); 
+    }
+  }, [dispatch, navigate]);
 
   const validateEmail = (email) => {
     const emailRegexp =
@@ -27,13 +41,18 @@ const Login = () => {
       setError("");
 
       try {
-        await login({
+        const response = await login({
           email: email,
           password: password,
         });
-        toast.success("Sesión iniciada correctamente", {
-          position: "top-center",
-        });
+        if (response.token) {
+          toast.success("Sesión iniciada exitosamente!", {
+            position: "top-center",
+          });
+          setTimeout(() => {
+            navigate("/"); // Redirigir a la página principal después de crear la cuenta
+          }, 1000);
+        }
       } catch (err) {
         console.log(err);
         toast.error("Error al iniciar sesión", {

@@ -1,14 +1,29 @@
 import { useEffect, useState } from "react";
 import Styles from "../Styles/Formulario.module.css";
 import { ToastContainer, toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import Loader from "../Components/Loader";
+import { useContextGlobalStates } from "../Components/utils/global.context";
 
 const Formulario = () => {
+  const { dispatch } = useContextGlobalStates();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
   const { register, loading } = useAuth();
+  const navigate = useNavigate();
+
+  // Verifica si ya hay un usuario en el localStorage
+  useEffect(() => {
+    const user = localStorage.getItem("user");  
+    if (user) {
+      dispatch({
+        type: "SET_USER",
+        payload: JSON.parse(user), 
+      });
+      navigate("/"); 
+    }
+  }, [dispatch, navigate]);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -94,15 +109,21 @@ const Formulario = () => {
 
     if (Object.keys(errores).length === 0 && validarFormulario()) {
       try {
-        await register({
-          nombre: formData.nombre,
-          apellido: formData.apellido,
-          correo: formData.correo,
-          contrasena: formData.contrasena,
+        const response = await register({
+          firstName: formData.nombre,
+          lastName: formData.apellido,
+          email: formData.correo,
+          password: formData.contrasena,
         });
-        toast.success("Cuenta creada correctamente", {
-          position: "top-center",
-        });
+
+        if (response.token) {
+          toast.success("Cuenta creada exitosamente!", {
+            position: "top-center",
+          });
+          setTimeout(() => {
+            navigate("/"); // Redirigir a la página principal después de crear la cuenta
+          }, 1000);
+        }
       } catch (err) {
         console.log(err);
         toast.error("Error al crear la cuenta", {
