@@ -17,7 +17,10 @@ const Administracion = () => {
         </div>
       <div className={Styles.square}>
         <h3>USUARIO </h3>
+        <Link to ={routes.listaUsuarios}>
         <button id={Styles.btn}>Listar usuarios</button>
+        </Link>
+        
       </div>
       <div className={Styles.square}>
         <h3>RESERVAS </h3>
