@@ -105,6 +105,33 @@
   color: #888;
 }
 
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  table-layout: fixed;
+}
+
+.table th {
+  color: #b5b7c0;
+}
+
+.table td {
+  color: #292d32;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #eeeeee;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+
 @media (max-width: 920px) {
     .mainFormContainer {
         display: flex;

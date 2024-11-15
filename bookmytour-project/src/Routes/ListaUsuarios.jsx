@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { userService } from "../services/api/userService";
 import { useNavigate } from "react-router-dom";
+import Styles from "../Styles/Productos.module.css";
 
 const ListaUsuarios = () => {
   const [users, setUsers] = useState([]);
@@ -66,27 +67,41 @@ const ListaUsuarios = () => {
   };
 
   return (
-    <div>
+    <div style={{ padding: "20px", maxWidth: "80%", justifySelf: "center" }}>
       <h2>Listado de usuarios</h2>
-      <ul>
-        {users.map((user) => (
-          <li key={user.userId}>
-            {" "}
-            {/* Usamos user.userId como clave */}
-            <span>
-              {user.firstName} {user.lastName} -{" "}
-              {user.rolName === "ADMIN" ? "Administrador" : "Usuario"}
-            </span>
-            <button
-              onClick={() => toogleAdminStatus(user.userId, user.rolName)}
-            >
-              {user.rolName === "ADMIN"
-                ? "Revocar permiso de Administrador"
-                : "Conceder permiso de administrador"}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <table className={Styles.table}>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => (
+            <tr key={user.userId}>
+              <td>{user.userId}</td>
+              <td>{user.firstName}</td>
+              <td>{user.lastName}</td>
+              <td>{user.email}</td>
+              <td>{user.rolName}</td>
+              <td style={{ width: "100px" }}>
+                <button
+                  className={Styles.btnAgregar}
+                  onClick={() => toogleAdminStatus(user.userId, user.rolName)}
+                >
+                  {user.rolName === "ADMIN"
+                    ? "Revocar permiso de Administrador"
+                    : "Conceder permiso de administrador"}
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
