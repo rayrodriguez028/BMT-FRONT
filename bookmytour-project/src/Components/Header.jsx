@@ -152,7 +152,7 @@ const Header = () => {
                     <Link to="/productos" onClick={closeMenuDesktop}>
                       Listar productos
                     </Link>
-                    <Link to="" onClick={closeMenuDesktop}>
+                    <Link to="/usuarios" onClick={closeMenuDesktop}>
                       Listar usuarios
                     </Link>
                     <Link to="" onClick={closeMenuDesktop}>
@@ -256,7 +256,7 @@ const Header = () => {
                 <Link to="/productos" onClick={closeMenu}>
                   Listar productos
                 </Link>
-                <Link to="" onClick={closeMenu}>
+                <Link to="/usuarios" onClick={closeMenu}>
                   Listar usuarios
                 </Link>
                 <Link to="" onClick={closeMenu}>
