@@ -117,7 +117,6 @@ const Formulario = () => {
         });
 
         if (response.token) {
-          dispatch({ type: "SET_USER", payload: response });
           toast.success("Cuenta creada exitosamente!", {
             position: "top-center",
           });

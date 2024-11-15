@@ -9,6 +9,7 @@ import Productos from './Routes/Productos'
 import Signup from './Routes/Signup'
 import Categorias from './Routes/Categorias'
 import Login from './Routes/Login'
+import ListaUsuarios from './Routes/ListaUsuarios'
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
           <Route path={routes.signup} element={<Signup />} />
           <Route path="detalle/:id" element={<Detalle />} />
           <Route path={routes.login} element={<Login />} />
+          <Route path={routes.listaUsuarios} element={<ListaUsuarios />} />
+          
           <Route
             path={routes.notFound}
             element={
