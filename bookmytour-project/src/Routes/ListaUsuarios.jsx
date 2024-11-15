@@ -16,20 +16,26 @@ const ListaUsuarios = () => {
     const toogleAdminStatus = async (userId, rolName) => {
         try {
             console.log('User ID:', userId);
-            const updatedRolName = rolName === 'ADMIN' ? 'USER' : 'ADMIN';  // Invertir el rol
+            const updatedRolName = rolName === 'ADMIN' ? 2 : 1;  // Invertir el rol
 
-            const updateDataUser = { rolName: updatedRolName };
+            const updateDataUser = { roleId: updatedRolName };
             console.log('Datos a enviar:', updateDataUser);
-            const response = await userService.updateUser(userId, updateDataUser); 
+            const response = await userService.assignRole(userId, updateDataUser); 
 
             if (response.status !== 200) throw new Error('Error al actualizar los permisos');
 
             // Actualiza el estado con el nuevo rol
             setUsers((prevUsers) =>
                 prevUsers.map((user) =>
-                    user.userId === userId ? { ...user, rolName: updatedRolName } : user
+                    user.userId === userId ? { ...user, roleId: updatedRolName } : user
                 )
             );
+            userService.getAllUsers()
+            .then((response) => {
+                console.log('Respuesta de la API:', response.data); 
+                setUsers(response.data);
+            })
+            .catch((error) => console.error('Error con los usuarios', error));
         } catch (error) {
             console.error('Error con los permisos', error);
         }

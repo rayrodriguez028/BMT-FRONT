@@ -8,7 +8,9 @@ export const userService = {
     getUserById: async (id) => {
       return await apiClient.get(`/usuarios/${id}`);
     },
-    
+    assignRole: async (id, userData) => {
+      return await apiClient.put(`/usuarios/${id}/role`, userData);
+    },
     updateUser: async (id, userData) => {
       return await apiClient.put(`/usuarios/${id}`, userData);
     },
