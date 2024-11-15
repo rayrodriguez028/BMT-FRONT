@@ -187,7 +187,7 @@ const Home = () => {
       </div>
 
       <div className={Styles.products}>
-        <h2 className={Styles.subtitles}>Productos</h2>
+        <h2 className={Styles.subtitles}>Tours</h2>
         <div className={Styles.cardsContainer}>
           {currentProducts.map((item) => (
             <Card

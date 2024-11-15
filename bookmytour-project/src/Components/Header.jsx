@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Styles from "../Styles/Header.module.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContextGlobalStates } from "../Components/utils/global.context.jsx";
 import Swal from 'sweetalert2'
 import { routes } from "./utils/routes";
@@ -11,6 +11,7 @@ const Header = () => {
   const [isMenuOpenDesktop, setIsMenuOpenDesktop] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLogged, setIsLogged] = useState(!!state.user);
+  const navigate = useNavigate();
   const { logout } = useAuth();
 
   // Obtener la ubicación actual usando useLocation
@@ -53,6 +54,7 @@ const Header = () => {
           text: "Has cerrado sesión con éxito.",
           icon: "success"
         });
+        navigate("/");
       } else {
         closeMenuDesktop();
         closeMenu();
