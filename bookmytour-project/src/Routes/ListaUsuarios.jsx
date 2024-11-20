@@ -94,8 +94,8 @@ const ListaUsuarios = () => {
                   onClick={() => toogleAdminStatus(user.userId, user.rolName)}
                 >
                   {user.rolName === "ADMIN"
-                    ? "Revocar permiso de Administrador"
-                    : "Conceder permiso de administrador"}
+                    ? "Revocar Admin"
+                    : "Convertir a Admin"}
                 </button>
               </td>
             </tr>
