@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import Styles from "../Styles/Detalle.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContextGlobalStates } from "../Components/utils/global.context";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import Slider from "react-slick";
 import Characteristics from "../Components/Characteristics";
+import MyCalendar from "../Components/MyCalendar";
 
 const Detail = () => {
   const { id } = useParams();
@@ -41,11 +42,11 @@ const Detail = () => {
     if (token) {
       // Si el token existe, permite la acción de agendar
       Swal.fire({
-        title: '¡Genial!',
-        text: 'Tour agendado exitosamente',
-        icon: 'success',
-        confirmButtonText: 'OK'
-      })
+        title: "¡Genial!",
+        text: "Tour agendado exitosamente",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
     } else {
       // Si el token no existe, muestra una alerta y redirige al login
       Swal.fire({
@@ -56,7 +57,7 @@ const Detail = () => {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Iniciar sesión",
-        cancelButtonText: "Cancelar"
+        cancelButtonText: "Cancelar",
       }).then((result) => {
         if (result.isConfirmed) {
           navigate("/login");
@@ -127,6 +128,7 @@ const Detail = () => {
             </div>
           </section>
           <Characteristics />
+          <MyCalendar />
         </div>
 
         {zoomImage && (
