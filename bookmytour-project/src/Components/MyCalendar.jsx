@@ -62,10 +62,10 @@ const MyCalendar = ({ customProps, duration }) => {
         startDate={startDate}
         endDate={endDate}
         selectsRange
+        showIcon
         onChange={onChange}
         monthsShown={2}
         minDate={new Date()}
-        isClearable={true}
         excludeDates={excludedDates}
         placeholderText="Selecciona una fecha"
         customInput={<CustomCalendarInput />}
