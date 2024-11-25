@@ -12,16 +12,17 @@
 .mainImage {
     position: relative;
     width: 65%;
+    height: max-content;
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
 .mainImage img{
-    width: 100%;
+    width: 60%;
     min-height: 100dvh;
-    border-radius: 0 0 0px 0px;
     object-fit: cover;
+    position: fixed;
 }
 
 .littleCard {
@@ -188,6 +189,8 @@
     .mainImage {
         height: 93%;
     }
+
+    
 }
 
 @media (max-width: 1024px) {
@@ -199,6 +202,11 @@
     .mainImage, .mainImage img {
         width: 100%;
         height: auto;
+    }
+
+    .mainImage img{
+        
+        position: unset;
     }
 
     .littleCard {

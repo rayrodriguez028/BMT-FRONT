@@ -128,7 +128,31 @@ const Detail = () => {
             </div>
           </section>
           <Characteristics />
-          <MyCalendar />
+          <div style={{ padding: "0 15px" }}>
+            <h4>Disponibilidad</h4>
+            <p>
+              Este tour tiene una duración de {tour.duracion}, selecciona la
+              fecha inicial para verificar la disponibilidad
+            </p>
+          </div>
+          <div
+            style={{
+              padding: "15px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              widows: "100%",
+              alignSelf: "center",
+              justifySelf: "center",
+            }}
+          >
+            <MyCalendar
+              duration={Number(tour.duracion.split(" ")[0])}
+              customProps={{
+                inline: true,
+              }}
+            />
+          </div>
         </div>
 
         {zoomImage && (
