@@ -4,15 +4,5 @@
         "source": "/(.*)",
         "destination": "/"
       }
-    ], "headers": [
-      {
-        "source": "/(.*)",
-        "headers": [
-          {
-            "key": "Strict-Transport-Security",
-            "value": "max-age=0"
-          }
-        ]
-      }
     ]
   }
